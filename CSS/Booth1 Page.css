@@ -1,0 +1,55 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body.bgBooth1 
+{
+    padding: 0px;
+  margin: 0;
+  background-color: #f9c7f9;
+  background-size: cover;
+  min-height: 100vh;
+  width: 100%;
+  max-width: 1480px;
+  overflow-x: hidden;
+}
+
+.Heading {
+  background-color: hsl(314, 89%, 82%); /* สีพื้นหลัง */
+  padding: 20px;                          /* เว้นช่องให้ข้อความไม่ชิดขอบ */
+  margin: 0;                             /* ไม่ให้มีช่องว่างรอบนอก */
+  width: 100vw;                          /* กว้างเต็มจอ */
+  box-sizing: border-box;                /* ให้ padding รวมในขนาดกล่อง */
+  text-align: left;                     /* ข้อความชิดซ้าย */
+  font-size: 34px;                      /* ขนาดตัวอักษร (เพิ่มได้ตามต้องการ) */
+  font-weight: bold;                    /* ทำให้ตัวหนา (ถ้าอยากให้ดูเด่น) */
+}
+
+    /* ปรับสำหรับมือถือ (หน้าจอเล็กกว่า 600px) */
+@media (max-width: 600px) {
+  .Heading {
+    font-size: 20px;     /* ลดขนาดตัวอักษร */
+    padding: 12px;       /* ลดช่องว่างรอบข้อความ */
+    text-align: center;  /* ชิดกลางเพื่ออ่านง่าย */
+  }
+}
+
+/* ปรับสำหรับแท็บเล็ต (หน้าจอ 601px – 1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .Heading {
+    font-size: 28px;
+    padding: 16px;
+    text-align: left;
+  }
+}
+
+/* สำหรับหน้าจอใหญ่ (Desktop) */
+@media (min-width: 1025px) {
+  .Heading {
+    font-size: 34px;
+    padding: 20px;
+    text-align: left;
+  }
+}
+        
