@@ -1,3 +1,8 @@
+html, body { 
+  height: 100%;
+  margin: 0;
+}
+
 @media (max-width: 600px) {
   .Heading {
     font-size: 20px;
@@ -23,17 +28,19 @@
 }
 
 .Heading {
-  background-color: hsl(314, 89%, 82%);
-  padding: 20px;
-  margin: 0;
-  width: 100vw;
-  box-sizing: border-box;
-  text-align: center;
-  font-size: 34px;
-  font-weight: bold;
+    background-color: hsl(314, 89%, 82%);
+    padding: 20px;
+    margin: 0;
+    width: 100vw;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 34px;
+    font-weight: bold;
+    position: top;
 }
 
 body {
+    display: flex;
     padding: 0px;
     margin: 0;
     background-size: cover;
@@ -41,29 +48,26 @@ body {
     width: 100%;
     max-width: 1480px;
     overflow-x: hidden;
+    flex-direction: column;
 }
 
-.footer {
-    background-color: hsl(314, 89%, 82%);
-    padding: 10px;
-    text-align: center;
-    position: relative;
-    bottom: 0;
-    width: 100vw;
-    box-sizing: border-box;
+.page {
+    display: flex;
+    flex: 1;
+    min-height: 0;
 }
 
 .left-side {
-    position: left;
-    top: 0;
+    position: bottom: 0;
+    top: 80px;
     left: 0;
-    width: 250px;
+    bottom: 0;
+    width: 240px;
     height: 100%;
     background-color: #f0e6f0;
-    padding: 10px;
+    padding: 12px;
     box-sizing: border-box;
     overflow-y: auto;
-    min-height: 100vh;
 }
 
 .left-side li {
@@ -77,4 +81,21 @@ body {
 
 .left-side a:hover {
     text-decoration: underline;
+}
+
+.main-content {
+    padding: 24px;
+    max-width: 960px;
+    position: relative;
+    flex: 1;
+}
+
+.footer {
+    background-color: hsl(314, 89%, 82%);
+    padding: 10px 0;
+    text-align: center;
+    position: bottom: 0;
+    bottom: 0;
+    width: 100vw;
+    box-sizing: border-box;
 }
