@@ -1,0 +1,80 @@
+@media (max-width: 600px) {
+  .Heading {
+    font-size: 20px;
+    padding: 12px;
+    text-align: center;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  .Heading {
+    font-size: 28px;
+    padding: 16px;
+    text-align: left;
+  }
+}
+
+@media (min-width: 1025px) {
+  .Heading {
+    font-size: 34px;
+    padding: 20px;
+    text-align: left;
+  }
+}
+
+.Heading {
+  background-color: hsl(314, 89%, 82%);
+  padding: 20px;
+  margin: 0;
+  width: 100vw;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 34px;
+  font-weight: bold;
+}
+
+body {
+    padding: 0px;
+    margin: 0;
+    background-size: cover;
+    min-height: 100vh;
+    width: 100%;
+    max-width: 1480px;
+    overflow-x: hidden;
+}
+
+.footer {
+    background-color: hsl(314, 89%, 82%);
+    padding: 10px;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100vw;
+    box-sizing: border-box;
+}
+
+.left-side {
+    position: left;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #f0e6f0;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    min-height: 100vh;
+}
+
+.left-side li {
+    padding: 5px;
+}
+
+.left-side a {
+    color: #000;
+    text-decoration: none;
+}
+
+.left-side a:hover {
+    text-decoration: underline;
+}
