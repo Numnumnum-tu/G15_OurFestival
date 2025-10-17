@@ -86,3 +86,43 @@ body.bgBooth1 {
     margin-bottom: 10px;
   }
 }
+
+/*รูปอาหารขยะที่ยาวๆ*/
+.long_line_of_junk_food {
+  text-align: center;   
+  margin-top: 30px;     
+}
+
+.long_line_of_junk_food img {
+  width: 100%;          
+  max-width: 2000px;     
+  height: auto;         
+  border-radius: 10px;  
+}
+
+/* มือถือ (จอเล็กกว่า 600px) */
+@media (max-width: 600px) {
+  .long_line_of_junk_food {
+    margin-top: 20px;     
+    padding: 0 10px;
+  }
+
+  .long_line_of_junk_food img {
+    max-width: 100%;      
+    border-radius: 5px;   
+  }
+}
+
+/* แท็บเล็ต (จอระหว่าง 601–1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .long_line_of_junk_food img {
+    max-width: 90%;       
+  }
+}
+
+/* หน้าจอใหญ่ (จอเกิน 1024px) */
+@media (min-width: 1025px) {
+  .long_line_of_junk_food img {
+    max-width: 2000px;    
+  }
+}
