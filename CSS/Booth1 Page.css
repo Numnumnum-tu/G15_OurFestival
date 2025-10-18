@@ -46,9 +46,9 @@ body.bgBooth1 {
 /* ชื่อร้าน */
 .name_store {
   color: white;
-  font-size: 24px;
+  font-size: 30px;
   font-weight: 600;
-  font-family: "Prompt", sans-serif;
+  font-family: "Mogra", cursive;
 }
 
 /* เมนู */
@@ -145,5 +145,111 @@ body.bgBooth1 {
 @media (min-width: 1025px) {
   .long_line_of_junk_food img {
     max-width: 2000px;    
+  }
+}
+
+.menufood {
+  text-align: center;
+  font-size: 40px;
+  font-weight: 700;
+  color: #e814b3;
+  font-family: "Mogra", cursive;
+  margin: 40px 0 20px 0;
+}
+
+/* 🔹 ส่วนรูปภาพ */
+.photo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+  gap: 20px;
+  justify-items: center;
+  padding: 0 40px 40px 40px;
+}
+
+/* 🔹 รูปภาพ */
+.photo img {
+  width: 100%;
+  max-width: 220px;
+  height: 220px;
+  border-radius: 15px;
+  object-fit: cover;
+  margin: 0 auto;
+   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* เอฟเฟกต์เมื่อเอาเมาส์ชี้ */
+.photo img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+
+@media (max-width: 1024px) {
+  .menufood {
+    font-size: 32px;
+    margin: 30px 0 15px 0;
+  }
+  .photo {
+    gap: 15px;
+    padding: 0 20px 30px 20px;
+  }
+  .photo img {
+    max-width: 200px;
+    height: 200px;
+  }
+}
+
+/* 🔹 ปรับ responsive สำหรับมือถือ */
+@media (max-width: 600px) {
+  .menufood {
+    font-size: 26px;
+    margin: 20px 0 10px 0;
+  }
+  .photo {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 0 10px 20px 10px;
+  }
+  .photo img {
+    max-width: 90%;
+    height: auto;
+  }
+}
+
+/*รายละเอียดรายการอาหาร*/
+.photo .item p {
+  font-family: "Mogra", cursive; /* ฟอนต์ */
+  font-size: 20px;               /* ขนาดตัวอักษร */
+  color: #333;                   /* สีตัวอักษร */
+  text-align: center;            /* จัดให้อยู่กลาง */
+  margin-top: 15px;              /* เว้นระยะด้านบน */
+  line-height: 1.0;              /* ระยะบรรทัด */
+}
+
+/* 📱 มือถือ (จอเล็กกว่า 600px) */
+@media (max-width: 600px) {
+  .photo .item p {
+    font-size: 16px;   /* ลดขนาดฟอนต์ */
+    margin-top: 10px;  /* ลดระยะบรรทัดด้านบน */
+    line-height: 0.9;  /* เพิ่มระยะบรรทัดให้อ่านง่าย */
+  }
+}
+
+/* 📲 แท็บเล็ต (601px–1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .photo .item p {
+    font-size: 18px;   /* ขนาดฟอนต์กลาง ๆ */
+    margin-top: 12px;  
+    line-height: 0.9;
+  }
+}
+
+/* 💻 หน้าจอใหญ่ (มากกว่า 1024px) */
+@media (min-width: 1025px) {
+  .photo .item p {
+    font-size: 20px;   /* ขนาดฟอนต์เดิม */
+    margin-top: 15px;  
+    line-height: 1.0;
   }
 }
