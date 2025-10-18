@@ -1,0 +1,55 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;          
+}
+
+/* bg content */
+
+body.bgBooth3{
+    background-color: #C9E2F3;
+}
+
+
+/* logo */
+
+.bglogo{
+   background-color: #89CFF0;
+   padding: 5px 5px ;             
+   display: flex;
+   align-items: center;           
+   flex-wrap: wrap;
+   position: sticky;
+   top: 0;
+   z-index: 1000;
+}
+
+.logo{
+    width: 150px;  
+    height: 150px; 
+    object-fit: cover; 
+    border-radius: 50%;
+}
+
+.name_menu{
+    font-family: "Yesteryear", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 35px;
+    color:#04688a;
+}
+.menu a{
+    text-decoration: none;
+    color: #11507a;
+    font-size: 16px;
+    margin: 10px 0px 10px 10px;
+    font-family: "DM Serif Text", serif;
+    font-weight: 400;
+    font-style: normal;
+    transition: all 0.3s ease;
+}
+
+.content{
+    text-align: center;   
+    margin-top: 35px;
+}
