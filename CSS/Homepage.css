@@ -6,7 +6,6 @@ html, body {
 @media (max-width: 600px) {
   .Heading {
     font-size: 20px;
-    padding: 12px;
     text-align: center;
   }
 }
@@ -14,7 +13,6 @@ html, body {
 @media (min-width: 601px) and (max-width: 1024px) {
   .Heading {
     font-size: 28px;
-    padding: 16px;
     text-align: left;
   }
 }
@@ -22,15 +20,14 @@ html, body {
 @media (min-width: 1025px) {
   .Heading {
     font-size: 34px;
-    padding: 20px;
     text-align: left;
   }
 }
 
 .Heading {
     background-color: hsl(314, 89%, 82%);
-    padding: 20px;
     margin: 0;
+    height: 90px;
     width: 100vw;
     box-sizing: border-box;
     text-align: center;
@@ -44,9 +41,9 @@ body {
     padding: 0px;
     margin: 0;
     background-size: cover;
-    min-height: 100vh;
+    min-height: 250vh;
     width: 100%;
-    max-width: 1480px;
+    max-width: 1000px;
     overflow-x: hidden;
     flex-direction: column;
     margin-bottom: 40px;
@@ -57,32 +54,6 @@ body {
     display: flex;
     flex: 1;
     min-height: 0;
-}
-
-.left-side {
-    position: bottom;
-    top: 80px;
-    left: 0;
-    bottom: 0;
-    width: 240px;
-    height: 200%;
-    background-color: #f0e6f0;
-    padding: 12px;
-    box-sizing: border-box;
-    overflow-y: auto;
-}
-
-.left-side li {
-    padding: 5px;
-}
-
-.left-side a {
-    color: #000;
-    text-decoration: none;
-}
-
-.left-side a:hover {
-    text-decoration: underline;
 }
 
 .main-content {
@@ -96,13 +67,14 @@ body {
     background-color: hsl(314, 89%, 82%);
     padding: 10px 0;
     text-align: center;
-    position: fixed;
+    position: relative;
     bottom: 0;
     width: 100vw;
     box-sizing: border-box;
     margin-top: auto;
-    line-height: var(--footer-h); 
+    line-height: var(--footer-h);
 }
+
 .image {
     width: auto;
     height: auto;
@@ -111,7 +83,94 @@ body {
 
 .booth-image {
     padding: 10px;
+    width: auto;
+    height: 50%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.booth-image-content img {
+    width: 30%;
+    height: auto;
+    border-radius: 8px;
     margin: 10px;
-    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
-    border-radius: 10px;
+    aspect-ratio: 4 / 3;
+}
+
+.Homepage-picture:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s;
+}
+
+.toggle-btn {
+  position:absolute; 
+  left:12px; 
+  top:12px;
+  font-size:24px; 
+  background:transparent; 
+  border:0; 
+  cursor:pointer;
+}
+
+.page { 
+  display:flex; 
+  flex:1; 
+  min-height:0; 
+}
+
+.left-side {
+  width: 240px;
+  background:#efe3ef;
+  padding:12px;
+  box-sizing:border-box;
+  transition: width .2s ease;
+}
+
+.side-list, .side-list ul { 
+  list-style:none; 
+  margin:0; 
+  padding-left:0; 
+}
+
+.side-list > li { 
+  margin:8px 0; 
+}
+
+.side-list a {
+  display:flex; 
+  align-items:center; 
+  gap:12px;
+  padding:6px 8px; 
+  border-radius:8px; 
+  text-decoration:none; 
+  color:inherit;
+}
+
+.side-list a:hover { 
+  background:#e6d9e6; 
+}
+
+.icon{ 
+  width:24px; 
+  text-align:center; 
+}
+
+.main-content { 
+  flex:1; 
+  padding:24px; 
+}
+
+body.sidebar-collapsed .left-side { 
+  width: 72px; 
+}
+
+body.sidebar-collapsed .left-side .label {
+  opacity:0; 
+  visibility:hidden; 
+  width:0;
+  transition: opacity .15s;
+}
+
+body.sidebar-collapsed .left-side ul ul { 
+  display:none; 
 }

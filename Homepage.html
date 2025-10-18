@@ -5,25 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
     <link rel="stylesheet" href="CSS/Homepage.css">
+    <script src="Javascript/Homepage.js" defer></script>
 </head>
 <body>
     <div class ="Heading">
-        <h1>Welcome to Our Fair Webpage</h1>
+        <button id="sidebarToggle" class="toggle-btn" aria-label="Toggle sidebar" aria-controls="leftSide" aria-expanded="true">☰</button>
+        <p class="title">Our Festival</p>
     </div>
     <div class="page">
-        <aside class="left-side">
-            <nav aria-label="Site navigation">
-                <ul>
-                    <li><a href="Homepage.html">Homepage</a></li>
-                    <li><a href="Booth Directory Page.html">Booth Directory Page</summary>
-                    <ul>
-                        <li><a href="Booth1 Page.html">Booth1 Page</a></li>
-                        <li><a href="Booth2 Page.html">Booth2 Page</a></li>
-                        <li><a href="Booth3 Page.html">Booth3 Page</a></li>
-                        <li><a href="Booth4 Page.html">Booth4 Page</a></li>
-                    </ul>
-                    <li><a href="Registration Page.html">Registration Page</a></li>
-                    <li><a href="Leave Your Feedback Page.html">Leave Your Feedback Page</a></li>
+        <aside id="leftSide" class="left-side">
+            <nav>
+                <ul class="side-list">
+                    <li><a href="Homepage.html"><span class="icon">🏠</span><span class="label">Homepage</span></a></li>
+                    <li>
+                        <a href="Booth Directory Page.html"><span class="icon">📂</span><span class="label">Booth Directory Page</span></a>
+                        <ul>
+                            <li><a href="Booth1 Page.html"><span class="icon">•</span><span class="label">Booth1 Page</span></a></li>
+                            <li><a href="Booth2 Page.html"><span class="icon">•</span><span class="label">Booth2 Page</span></a></li>
+                            <li><a href="Booth3 Page.html"><span class="icon">•</span><span class="label">Booth3 Page</span></a></li>
+                            <li><a href="Booth4 Page.html"><span class="icon">•</span><span class="label">Booth4 Page</span></a></li>
+                        </ul>
+                    </li>
+                    <li><a href="Registration Page.html"><span class="icon">📝</span><span class="label">Registration Page</span></a></li>
+                    <li><a href="Leave Your Feedback Page.html"><span class="icon">💬</span><span class="label">Leave Your Feedback Page</span></a></li>
                 </ul>
             </nav>
         </aside>
@@ -34,17 +38,45 @@
             </section>
             <section>
                 <h2>Fair's picture</h2>
-                <div class="booth-image"><a>Booth1</a>
+                <div class="booth-image"><a>Booth1 : Foods Fair</a>
                     <hr>
+                    <div class="booth-img">
+                        <div class ="booth-image-content">
+                            <img src="img/pizza_booth.png" class="Homepage-picture">
+                            <img src="img/taco_booth.png" class="Homepage-picture">
+                            <img src="img/pizza_booth.png" class="Homepage-picture">
+                        </div>
+                    </div>
                 </div>
-                <div class="booth-image"><a>Booth2</a>
+                <div class="booth-image"><a>Booth2 : </a>
                     <hr>
+                    <div class="booth1-img">
+                        <div class ="booth-image-content">
+                            <img src="img/nothingfiles.png" class="Homepage-picture">
+                            <img src="img/nothingfiles.png" class="Homepage-picture">
+                            <img src="img/nothingfiles.png" class="Homepage-picture">
+                        </div>
+                    </div>
                 </div>
-                <div class="booth-image"><a>Booth3</a>
+                <div class="booth-image"><a>Booth3 : </a>
                     <hr>
+                    <div class="booth1-img">
+                        <div class ="booth-image-content">
+                            <img src="img/nothingfiles.png" class="Homepage-picture">
+                            <img src="img/nothingfiles.png" class="Homepage-picture">
+                            <img src="img/nothingfiles.png" class="Homepage-picture">
+                        </div>
+                    </div>
                 </div>
-                <div class="booth-image"><a>Booth4</a>
+                <div class="booth-image"><a>Booth4 : </a>
                     <hr>
+                    <div class="booth1-img">
+                        <div class ="booth-image-content">
+                            <img src="img/nothingfiles.png" class="Homepage-picture">
+                            <img src="img/nothingfiles.png" class="Homepage-picture">
+                            <img src="img/nothingfiles.png" class="Homepage-picture">
+                        </div>
+                    </div>
                 </div>
             </section>
             <section>
@@ -63,7 +95,7 @@
         </div>
     </div>
     <div class="footer">
-        <p>© 2024 Fair Webpage. All rights reserved.</p>
+        <p>Made by G15 Our Festival | © 2025</p>
     </div>
 </body>
 </html>
