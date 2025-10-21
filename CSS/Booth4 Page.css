@@ -1,16 +1,123 @@
+html, body { 
+  height: 100%;
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .Heading {
+    font-size: 20px;
+    text-align: center;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  .Heading {
+    font-size: 28px;
+    text-align: left;
+  }
+}
+
+@media (min-width: 1025px) {
+  .Heading {
+    font-size: 34px;
+    text-align: left;
+  }
+}
 
 body {
-  background: linear-gradient(135deg, #f0fcc1, #f1cfe6);
-  color: #333;
-  margin: 0;
-  padding: 0;
+    display: flex;
+    padding: 0px;
+    margin: 0;
+    background-size: cover;
+    min-height: 250vh;
+    width: 100%;
+    max-width: 1000px;
+    overflow-x: hidden;
+    flex-direction: column;
+    margin-bottom: 40px;
+    padding-bottom: var(--footer-h);
+    background: linear-gradient(135deg, #f0fcc1, #f1cfe6);
+    color: #090909;
+    margin: 0;
+    padding: 0;
+}
+
+.page {
+    display: flex;
+    flex: 1;
+    min-height: 0;
+}
+.toggle-btn {
+  position:absolute; 
+  left:12px; 
+  top:12px;
+  font-size:24px; 
+  background:transparent; 
+  border:0; 
+  cursor:pointer;
+}
+.left-side {
+  width: 240px;
+  background: linear-gradient(#e7d8ec,#c5d4e0);
+  padding:12px;
+  box-sizing:border-box;
+  transition: width .2s ease;
+}
+
+.side-list, .side-list ul { 
+  list-style:none; 
+  margin:0; 
+  padding-left:0; 
+}
+
+.side-list > li { 
+  margin:8px 0; 
+}
+
+.side-list a {
+  display:flex; 
+  align-items:center; 
+  gap:12px;
+  padding:6px 8px; 
+  border-radius:8px; 
+  text-decoration:none; 
+  color:inherit;
+}
+
+.side-list a:hover { 
+  background:#e6d9e6; 
+}
+
+.icon{ 
+  width:24px; 
+  text-align:center; 
+}
+
+.main-content { 
+  flex:1; 
+  padding:24px; 
+}
+
+body.sidebar-collapsed .left-side { 
+  width: 72px; 
+}
+
+body.sidebar-collapsed .left-side .label {
+  opacity:0; 
+  visibility:hidden; 
+  width:0;
+  transition: opacity .15s;
+}
+
+body.sidebar-collapsed .left-side ul ul { 
+  display:none; 
 }
 
 header {
   text-align: center;
   background: linear-gradient(#e7d8ec,#c5d4e0);
   color: rgb(168, 135, 202);
-  padding: 30px 33px;
+  padding: 33px 33px;
   box-shadow: 0 8px 20px rgba(28, 34, 3, 0.2);
 }
 

@@ -4,40 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/Booth4 Page.css">
+    <script src="Javascript/Homepage.js" defer></script>
     <title>Booth4</title>
 </head>
 <body>
-  <header>
-    <h1>🎉 กิจกรรมในงานเทศกาล 🎉</h1>
-    <p>🔥Lets start🔥!</p>
-  </header>
+  <div class ="Heading">
+        <button id="sidebarToggle" class="toggle-btn" aria-label="Toggle sidebar" aria-controls="leftSide" aria-expanded="true">☰</button>
+        <header>
+          <h1>🎉 กิจกรรมในงานเทศกาล 🎉</h1>
+          <p>🔥Lets start🔥!</p>
+        </header>
+   <div class="page">
+        <aside id="leftSide" class="left-side">
+            <nav>
+                <ul class="side-list">
+                    <li><a href="Homepage.html"><span class="icon">🏠</span><span class="label">Homepage</span></a></li>
+                    <li>
+                        <a href="Booth Directory Page.html"><span class="icon">📂</span><span class="label">Booth Directory Page</span></a>
+                        <ul>
+                            <li><a href="Booth1 Page.html"><span class="icon">•</span><span class="label">Booth1 Page</span></a></li>
+                            <li><a href="Booth2 Page.html"><span class="icon">•</span><span class="label">Booth2 Page</span></a></li>
+                            <li><a href="Booth3 Page.html"><span class="icon">•</span><span class="label">Booth3 Page</span></a></li>
+                            <li><a href="Booth4 Page.html"><span class="icon">•</span><span class="label">Booth4 Page</span></a></li>
+                        </ul>
+                    </li>
+                    <li><a href="Registration Page.html"><span class="icon">📝</span><span class="label">Registration Page</span></a></li>
+                    <li><a href="Leave Your Feedback Page.html"><span class="icon">💬</span><span class="label">Leave Your Feedback Page</span></a></li>
+                </ul>
+            </nav>
+        </aside>
 
-  <section class="booth-list">
-    <div class="booth">
-      <h2>เกมปาลูกโป่ง</h2>
-      <p>มาลองความแม่นยำของคุณ แล้วรับของรางวัลสุดแสนจะน่ารักกลับบ้านกัน!</p>
-      <div class="photo">
-        <img src="img/ปาลูกโป่ง.jpeg">
-      </div>
-    </div>
+        <section class="booth-list">
+           <div class="booth">
+               <h2>เกมปาลูกโป่ง</h2>
+               <p>มาลองความแม่นยำของคุณ แล้วรับของรางวัลสุดแสนจะน่ารักกลับบ้านกัน!</p>
+             <div class="photo">
+               <img src="img/ปาลูกโป่ง.jpeg">
+             </div>
+           </div>
 
-    <div class="booth">
-      <h2>ช้อนปลา</h2>
-      <p>มาทดสอบฝีมือกันหน่อยนักช้อนปลาทั้งหลาย!</p>
-      <div class="photo">
-        <img src="img/ช้อนปลา.jpg">
-      </div>
-    </div>
+           <div class="booth">
+               <h2>ช้อนปลา</h2>
+               <p>มาทดสอบฝีมือกันหน่อยนักช้อนปลาทั้งหลาย!</p>
+               <div class="photo">
+                 <img src="img/ช้อนปลา.jpg">
+               </div>
+           </div>
 
-    <div class="booth">
-      <h2>จับฉลาก</h2>
-      <p>หากคุณสุ่มการ์ดได้เกลือ ไม่ต้องห่วงสุ่มที่นี่อย่างน้อยก็ต้องได้ของกลับบ้าน!!</p>
-      <div class="photo">
-        <img src="img/จับฉลาก.jpg">
-      </div>
-    </div>
-  </section>
+           <div class="booth">
+              <h2>จับฉลาก</h2>
+              <p>หากคุณสุ่มการ์ดได้เกลือ ไม่ต้องห่วงสุ่มที่นี่อย่างน้อยก็ต้องได้ของกลับบ้าน!!</p>
+              <div class="photo">
+                 <img src="img/จับฉลาก.jpg">
+              </div>
+           </div>
 
+           <div class="booth">
+            <h2>ซุ้มยิงปืน</h2>
+            <p>ปั้งๆ คุณแน่แค่ไหนมาลองหน่อยไหม</p>
+            <div class="photo">
+              <img src="img/ซุ้มยิงปืน.jpg">
+            </div>
+           </div>
+         </section>
+   </div>
   <footer>
     <p>จัดโดย: G15 Our Festival | © 2025</p>
   </footer>
