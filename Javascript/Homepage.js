@@ -1,15 +1,11 @@
-const body = document.body;
-  const btn = document.getElementById('sidebarToggle');
+const btn = document.getElementById('sidebarToggle');
+const backdrop = document.getElementById('drawerBackdrop');
 
-  // โหลดสถานะเดิม
-  const saved = localStorage.getItem('sidebar-collapsed') === '1';
-  if (saved) {
-    body.classList.add('sidebar-collapsed');
-    btn.setAttribute('aria-expanded', 'false');
-  }
+function toggle() {
+  document.body.classList.toggle('sidebar-open');
+  const opened = document.body.classList.contains('sidebar-open');
+  if (btn) btn.setAttribute('aria-expanded', String(opened));
+}
 
-  btn.addEventListener('click', () => {
-    const collapsed = body.classList.toggle('sidebar-collapsed');
-    btn.setAttribute('aria-expanded', String(!collapsed));
-    localStorage.setItem('sidebar-collapsed', collapsed ? '1' : '0');
-});
+if (btn) btn.addEventListener('click', toggle);
+if (backdrop) backdrop.addEventListener('click', toggle);
