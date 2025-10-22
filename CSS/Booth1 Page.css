@@ -74,6 +74,15 @@ body.bgBooth1 {
   transform: scale(1.05);
 }
 
+/*ไอคอนลงทะเบียน*/
+.icon-register {
+  width: 40px;              
+  height: auto;             
+  margin-left: 4px;         
+  vertical-align: middle;   
+}
+
+
 /*  มือถือ (ต่ำกว่า 768px): เมนูเรียงแนวตั้ง */
 @media screen and (max-width: 768px) {
   .navbar {
@@ -157,13 +166,30 @@ body.bgBooth1 {
   margin: 40px 0 20px 0;
 }
 
-/*  ส่วนรูปภาพ */
+/* 📱 มือถือ */
+@media (max-width: 600px) {
+  .menufood {
+    font-size: 28px;
+    margin: 30px 0 15px 0;
+  }
+}
+
+/* 💻 จอใหญ่ */
+@media (min-width: 1200px) {
+  .menufood {
+    font-size: 48px;
+  }
+}
+
+/* ส่วนรูปภาพ */
 .photo {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
   gap: 20px;
-  justify-items: center;
+  justify-items: center;     
+  align-items: center;       
   padding: 0 40px 40px 40px;
+  text-align: center;
 }
 
 /* รูปภาพ */
@@ -173,47 +199,37 @@ body.bgBooth1 {
   height: 220px;
   border-radius: 15px;
   object-fit: cover;
+  display: block;
   margin: 0 auto;
-   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* เอฟเฟกต์เมื่อเอาเมาส์ชี้ */
+/* เอฟเฟกต์ hover */
 .photo img:hover {
   transform: scale(1.05);
   box-shadow: 0 8px 16px rgba(0,0,0,0.2);
 }
 
-
-@media (max-width: 1024px) {
-  .menufood {
-    font-size: 32px;
-    margin: 30px 0 15px 0;
-  }
+/* 📱 มือถือ (จอเล็กกว่า 600px) */
+@media (max-width: 600px) {
   .photo {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* ให้รูปเล็กลง */
     gap: 15px;
-    padding: 0 20px 30px 20px;
+    padding: 0 20px 20px 20px;
   }
+
   .photo img {
-    max-width: 200px;
-    height: 200px;
+    max-width: 160px;
+    height: 160px;
   }
 }
 
-/*  ปรับ responsive สำหรับมือถือ */
-@media (max-width: 600px) {
-  .menufood {
-    font-size: 26px;
-    margin: 20px 0 10px 0;
-  }
-  .photo {
-    grid-template-columns: 1fr;
-    gap: 15px;
-    padding: 0 10px 20px 10px;
-  }
+/* 💻 จอใหญ่ (เกิน 1200px) */
+@media (min-width: 1200px) {
   .photo img {
-    max-width: 90%;
-    height: auto;
+    max-width: 250px;
+    height: 250px;
   }
 }
 
