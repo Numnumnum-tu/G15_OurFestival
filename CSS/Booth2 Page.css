@@ -1,0 +1,155 @@
+body {
+  font-family: sans-serif;
+  background-color: #fff0f5;
+  color: #a37e7e;
+  line-height: 1.8;
+  margin: 0;
+  padding-top: 50px;
+}
+
+header {
+  background-color: #ffb6c1;
+  color: white;
+  text-align: center;
+  padding: 30px 15px;
+}
+
+header h1 {
+  font-size: 5em;
+  margin: 0;
+}
+
+.nav {
+  background-color: #ffe4e1;
+  text-align: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #ccc;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #613321;
+  font-weight: 500;
+  font-size: 15px;
+  margin: 0 15px;
+  padding: 6px 10px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.nav a:hover {
+  background-color: #ff69b4;
+  color: white;
+}
+
+.nav a.active {
+  background-color: #ff69b4;
+  color: white;
+}
+
+.product {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.product h2 {
+  margin-bottom: 25px;
+  font-size: 3.5em;
+  color: #613321;
+}
+
+
+.menufood {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.menu {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  width: 230px;
+  padding: 15px;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.menu:hover {
+  transform: translateY(-6px);
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.12);
+}
+
+.menu img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.menu h3 {
+  margin-top: 10px;
+  color: #a37e7e;
+  font-size: 1.1em;
+}
+
+
+.menufood .menu p {
+  margin: 8px 0;
+  font-size: 0.95em;
+  color: #6d4c41;
+}
+.menu button {
+  background-color: #f7b1d4;
+  color: #ffffff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.menu button:hover {
+  background-color: #ff69b4;
+  transform: scale(1.05);
+}
+
+footer {
+  background-color: #ffe4e1;
+  text-align: center;
+  padding: 20px;
+  font-size: 15px;
+  margin-top: 30px;
+}
+
+footer a {
+  color: #613321;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+footer a:hover {
+  color: #ff69b4;
+}
+
+@media screen and (max-width: 900px) {
+  .menu a {
+    display: block;
+    margin: 10px 0;
+  }
+
+  .menufood {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menufood .menu {
+    width: 80%;
+  }
+}
