@@ -1,0 +1,218 @@
+@font-face {
+    font-family: 'Sukhumvit Set';
+    src: url('../fonts/SukhumvitSet-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+html, body { 
+    height: 100%; 
+    margin: 0; 
+}
+
+@media (max-width: 600px) {
+  .Heading {
+    font-size: 20px;
+    text-align: center;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  .Heading {
+    font-size: 28px;
+    text-align: left;
+  }
+}
+
+@media (min-width: 1025px) {
+  .Heading {
+    font-size: 34px;
+    text-align: left;
+  }
+}
+
+:root { 
+  --content-max: 960px;
+  --header-h: 80px; 
+  --footer-h: 60px;
+}
+
+.Heading {
+    background-color: hsl(314, 89%, 82%);
+    position: fixed; top: 0; left: 0; right: 0;
+    height: var(--header-h);
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    width: 100%; 
+    z-index: 100;
+}
+
+.heading-logo {    
+    height: 60px;
+    margin-right: 10px;
+}
+
+.side-logo {
+    margin-top: -13px;
+    height: 60px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+body {
+    font-family: 'Sukhumvit Set', sans-serif;
+    background-color: #eaebeb;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.footer {
+    background-color: hsl(314, 89%, 82%);
+    padding: 10px 0;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: auto;
+    
+}
+
+.footer p {
+    line-height: normal;
+    margin: 0;
+}
+
+
+
+
+
+.toggle-btn {
+  position:absolute; 
+  left:12px; 
+  top:12px;
+  font-size:24px; 
+  background:transparent; 
+  border:0; 
+  cursor:pointer;
+  padding: 10px;
+  z-index: 101;
+}
+
+
+.left-side {
+  position: fixed;
+  top: 0; 
+  left: 0; 
+  bottom: 0;
+  width: 260px;
+  background:#efe3ef;
+  padding:12px;
+  box-sizing:border-box;
+  transform: translateX(-100%);
+  transition: transform .25s ease;
+  z-index: 1000;
+}
+
+.side-list > li { 
+  margin:8px 0; 
+}
+
+.side-list a {
+  display:flex; 
+  align-items:center; 
+  gap:12px;
+  padding:6px 8px; 
+  border-radius:8px; 
+  text-decoration:none; 
+  color:inherit;
+}
+
+.side-list a:hover { 
+  background:#e6d9e6; 
+}
+
+.icon{ 
+  width:24px; 
+  text-align:center; 
+}
+
+
+
+body.sidebar-collapsed .left-side { 
+  width: 72px; 
+}
+
+body.sidebar-collapsed .left-side .label {
+  opacity:0; 
+  visibility:hidden; 
+  width:0;
+  transition: opacity .15s;
+}
+
+body.sidebar-collapsed .left-side ul ul { 
+  display:none; 
+}
+
+body.sidebar-open .left-side{
+  transform: translateX(0);
+}
+
+.drawer-backdrop{
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.25);
+  opacity: 0; pointer-events: none;
+  transition: opacity .2s ease;
+  z-index: 900;
+}
+body.sidebar-open .drawer-backdrop{
+  opacity: 1; pointer-events: auto;
+}
+
+
+form {
+  margin: 120px auto 80px auto; /* เพิ่มเว้นบน-ล่าง */
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  max-width: 600px;
+}
+
+.gender-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 10px 0 20px ;
+}
+
+.gender-row {
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+}
+
+.gender-row span {
+  font-weight: 500;
+}
+
+label{
+  font-size: 18px;
+
+}
+
+
+
+
+

@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Our Festival — Registration</title>
+  <link rel="stylesheet" href="CSS\Registration Page.css">
+</head>
+<body>
+  <main>
+    <header>
+      <div class="logo-wrap" aria-hidden="true">
+        <svg width="72" height="72" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Our Festival logo">
+          <defs>
+            <linearGradient id="g1" x1="0" x2="1">
+              <stop offset="0" stop-color="#a0c4ff"/>
+              <stop offset="1" stop-color="#ffc6ff"/>
+            </linearGradient>
+          </defs>
+          <rect rx="20" width="120" height="120" fill="url(#g1)"/>
+          <g transform="translate(18,18)" fill="#fff">
+            <circle cx="24" cy="24" r="6" opacity="0.95"/>
+            <rect x="44" y="10" width="10" height="28" rx="5" opacity="0.95"/>
+            <path d="M6 46c6 5 18 8 34 0 14-7 20-2 26 4" stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+          </g>
+        </svg>
+      </div>
+
+      <h1>Our Festival — ลงทะเบียน</h1>
+      <p>กรุณากรอกข้อมูลด้านล่างเพื่อเข้าร่วมกิจกรรม</p>
+    </header>
+
+    <form id="regForm" novalidate>
+      <div class="form-row">
+        <label for="fullname">ชื่อ-สกุล *</label>
+        <input id="fullname" name="fullname" type="text" required placeholder="เช่น ฉัตร ธาดาวรวงศ์">
+        <div class="error" id="err-fullname"></div>
+      </div>
+
+      <div class="form-row inline">
+        <div>
+          <label for="studentId">รหัสนักศึกษา *</label>
+          <input id="studentId" name="studentId" type="text" required pattern="^\d{9,10}$" placeholder="ไม่ใช่เลขบัตรประชาชน">
+          <div class="error" id="err-studentId"></div>
+        </div>
+
+        <div>
+          <label for="year">ชั้นปี</label>
+          <select id="year" name="year">
+            <option value="">-- เลือกปี --</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <label for="email">อีเมล *</label>
+        <input id="email" name="email" type="email" required placeholder="อีเมลของทางมหาลัย">
+        <div class="error" id="err-email"></div>
+      </div>
+
+      <div class="form-row">
+        <label for="phone">เบอร์โทรศัพท์ *</label>
+        <input id="phone" name="phone" type="tel" required pattern="^\+?\d{9,15}$" placeholder="เช่น 0812345678">
+        <div class="error" id="err-phone"></div>
+      </div>
+
+      <div class="form-row">
+        <label for="major">สาขา/คณะ</label>
+        <select id="major" name="major">
+          <option value="">-- เลือกสาขา --</option>
+          <option>คณะสังคมสงเคราะห์ศาสตร์</option>
+          <option>คณะศิลปศาสตร์</option>
+          <option>คณะวิทยาศาสตร์และเทคโนโลยี</option>
+          <option>อื่น ๆ</option>
+        </select>
+      </div>
+
+      <fieldset class="form-row">
+        <legend>ได้รับเว็บไซต์นี้จากไหน *</legend>
+        <label><input type="radio" name="role" value="Frontend" required> ไอจี</label>
+        <label><input type="radio" name="role" value="Backend"> เฟส</label>
+        <label><input type="radio" name="role" value="Designer"> เพื่อนแนะนำมา</label>
+        <div class="error" id="err-role"></div>
+      </fieldset>
+
+      <fieldset class="form-row">
+        <legend>สนใจบูธ</legend>
+        <label><input type="checkbox" name="interests" value="Food"> อาหาร</label>
+        <label><input type="checkbox" name="interests" value="Merch"> สินค้า</label>
+        <label><input type="checkbox" name="interests" value="Games"> มินิเกม</label>
+      </fieldset>
+
+      <div class="form-row">
+        <label for="attendDate">วันที่จะเข้าร่วม</label>
+        <input id="attendDate" name="attendDate" type="date">
+      </div>
+
+      <div class="form-row">
+        <label for="note">หมายเหตุ</label>
+        <textarea id="note" name="note" rows="3" placeholder="-"></textarea>
+      </div>
+
+      <div class="form-row">
+        <label class="agree"><input id="agree" name="agree" type="checkbox" required> ยอมรับเงื่อนไข *</label>
+        <div class="error" id="err-agree"></div>
+      </div>
+
+      <div class="form-row">
+        <button type="submit">ลงทะเบียน</button>
+      </div>
+    </form>
+
+    <footer class="foot-note">
+      <p>มีปัญหาแจ้งผู้ดูแลระบบหรือส่งอีเมลมาที่ <a href="mailto:admin@ourfestival.example">Demo@tu.ac.th</a></p>
+      <p><a href="/summary">ดูสรุปผู้ลงทะเบียน</a></p>
+    </footer>
+  </main>
+
+  <script src="/static/validate.js" defer></script>
+</body>
+</html>
