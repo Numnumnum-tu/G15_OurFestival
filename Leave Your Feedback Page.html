@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <link rel="stylesheet" href="CSS/Leave Your Feedback Page.css">
+    <script src="Javascript/Homepage.js" defer></script>
+</head>
+<body>
+    
+    <div class ="Heading">
+        <button id="sidebarToggle" class="toggle-btn" aria-label="Toggle sidebar" aria-controls="leftSide" aria-expanded="true">☰</button>
+        <img src="img/G15_logo.png" class="heading-logo">
+        <p class="heading-title">| Feedback</p>
+    </div>
+
+
+    <aside id="leftSide" class="left-side">
+        <nav>
+            <ul class="side-list">
+                <img src="img/G15_logo.png" class="side-logo">
+                <li><a href="Homepage.html"><span class="icon">🏠</span><span class="label">Homepage</span></a></li>
+                <li>
+                <a href="Booth Directory Page.html"><span class="icon">📂</span><span class="label">Booth Directory Page</span></a>
+                    <a href="Booth1 Page.html"><span class="icon">•</span><span class="label">Booth1 Page</span></a>
+                    <a href="Booth2 Page.html"><span class="icon">•</span><span class="label">Booth2 Page</span></a>
+                    <a href="Booth3 Page.html"><span class="icon">•</span><span class="label">Booth3 Page</span></a>
+                    <a href="Booth4 Page.html"><span class="icon">•</span><span class="label">Booth4 Page</span></a>
+                </li>
+                <li><a href="Registration Page.html"><span class="icon">📝</span><span class="label">Registration Page</span></a></li>
+                <li><a href="Leave Your Feedback Page.html"><span class="icon">💬</span><span class="label">Leave Your Feedback Page</span></a></li>
+            </ul>
+        </nav>
+    </aside>
+
+
+
+    
+    <form id="feedbackForm">
+
+        <h2>แบบประเมินความพึงพอใจ</h2>
+      <label for="name">ชื่อผู้ประเมิน</label><br>
+      <input type="text" id="name" name="name" required><br><br>
+
+      <label>Gender</label>
+        <input type="radio" name="gender" value="male"> Male
+        <input type="radio" name="gender" value="Female"> Female<br><br><br>
+
+      <label for="rating">ให้คะแนนความพึงพอใจ (1–5)</label><br>
+      <input type="range" id="rating" name="rating" min="1" max="5" value="3"><br><br>
+
+      <label for="comment">สิ่งที่ท่านชอบมากที่สุดในงานคืออะไร</label><br>
+      <textarea id="comment" name="comment" rows="4"></textarea><br><br>
+
+      <label for="comment">สิ่งที่ควรปรับปรุงสำหรับครั้งต่อไป</label><br>
+      <textarea id="comment" name="comment" rows="4"></textarea><br><br>
+
+      
+
+      <button type="submit">ส่งแบบประเมิน</button>
+    </form>
+
+   
+
+    
+
+
+    
+    <div class="drawer-backdrop" id="drawerBackdrop"></div>
+    <div class="footer">
+        <p>Made by G15 Our Festival | © 2025</p>
+    </div>
+</body>
+</html>
