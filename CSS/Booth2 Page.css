@@ -153,3 +153,41 @@ footer a:hover {
     width: 80%;
   }
 }
+
+.menu-btn {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.sidebar {
+  height: 100%;
+  width: 0; 
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color:  #f8bbc4;
+  overflow-x: hidden;
+  transition: 0.3s;
+  padding-top: 60px;
+}
+
+.sidebar a {
+  padding: 10px 20px;
+  text-decoration: none;
+  font-size: 18px;
+  color: rgb(59, 44, 44);
+  display: block;
+  transition: 0.2s;
+}
+
+.sidebar a:hover {
+  background-color: #575757;
+}
+
+.sidebar.open {
+  width: 250px;
+}
