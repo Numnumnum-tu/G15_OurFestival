@@ -82,6 +82,10 @@ body {
     padding-bottom: var(--footer-h);
 }
 
+.main-content h2 {
+    text-decoration: underline;
+}
+
 .footer {
     background-color: hsl(314, 89%, 82%);
     padding: 10px 0;
