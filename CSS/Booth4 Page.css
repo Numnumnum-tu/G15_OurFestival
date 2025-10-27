@@ -24,6 +24,12 @@ html, body {
   }
 }
 
+:root { 
+  --content-max: 960px;
+  --header-h: 80px; 
+  --footer-h: 60px;
+}
+
 body {
     display: flex;
     padding: 0px;
@@ -43,7 +49,7 @@ body {
 }
 
 .toggle-btn {
-  position:absolute; 
+  position:fixed; 
   left:12px; 
   top:12px;
   font-size:24px; 
@@ -105,6 +111,13 @@ body {
 .icon{ 
   width:24px; 
   text-align:center; 
+}
+
+.side-logo {
+    margin-top: -13px;
+    height: 60px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .main-content { 
