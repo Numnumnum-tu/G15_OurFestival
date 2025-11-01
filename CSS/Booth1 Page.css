@@ -1,112 +1,271 @@
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;          
+body, html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
-/* พื้นหลังของหน้า */
+@font-face {
+    font-family: 'Sukhumvit Set';
+    src: url('../fonts/SukhumvitSet-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* 🎨 พื้นหลังของหน้า */
 body.bgBooth1 {
+  padding-top: 100px; /* เพิ่มช่องว่างด้านบน ให้เนื้อหาไม่ถูก Navbar ทับ */
   margin: 0;
-  padding: 0;
+  padding-left: 0;
+  padding-right: 0;
   background-color: #f4baf4;
   background-size: cover;
-  min-height: 100vh;     
+  min-height: 100vh;
   width: 100%;
-  overflow-x: hidden;    
-  overflow-y: auto;      
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+   padding-top: 130px;
 }
 
-
+/* 🔝 Navbar */
 .navbar {
-  background-color: #f277d3;
-  padding: 20px 40px;             
   display: flex;
-  justify-content: space-between; 
-  align-items: center;           
-  flex-wrap: wrap;
-  position: sticky;
+  align-items: center;
+  justify-content: space-between; /* แก้จาก center → space-between */
+  padding: 20px 40px;
+  position: fixed;
   top: 0;
+  width: 100%;
+  background-color: #f277d3;
+  height: 120px;
   z-index: 1000;
+  box-sizing: border-box;
 }
 
-/* โลโก้ */
+/* 🏷️ โลโก้ */
 .logo {
-  display: flex;              
-  align-items: center;        
-  gap: 15px;                  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  width: 100%;  /* เปลี่ยนจาก fit-content เป็น 100% */
+  margin: 0 auto;
+  flex-wrap: wrap;
 }
 
 .logo img {
   height: 80px;
   width: auto;
   object-fit: contain;
-  border-radius: 0;
 }
 
-/* ชื่อร้าน */
+/* ✨ ชื่อร้าน */
 .name_store {
   color: white;
-  font-size: 30px;
+  font-size: 40px;
   font-weight: 600;
   font-family: "Mogra", cursive;
+  text-align: center;
 }
 
-/* 📱 มือถือ (จอ ≤ 600px) */
+/* 📱 มือถือ (≤600px) */
 @media (max-width: 600px) {
   .logo {
-    flex-direction: column; /* เรียงโลโก้กับชื่อร้านแนวตั้ง */
+    flex-direction: column;
     gap: 8px;
   }
 
   .logo img {
     height: 50px;
+    max-width: 80%; /* เพิ่มให้ขนาดโลโก้ลดตามหน้าจอ */
   }
 
   .name_store {
-    font-size: 22px;
+    font-size: 24px;
   }
 }
 
-/* 📲 iPad / Tablet (601px–1024px) */
+/* 📲 Tablet (601px–1024px) */
 @media (min-width: 601px) and (max-width: 1024px) {
   .logo img {
     height: 65px;
+    max-width: 70%;
   }
 
   .name_store {
-    font-size: 26px;
+    font-size: 32px;
   }
 }
 
-/* 💻 จอใหญ่ (≥1025px) */
-@media (min-width: 1025px) {
-  .logo img {
-    height: 80px;
+
+/* 🚫 ป้องกัน scroll ตอนเปิดเมนู */
+body.menu-open {
+  overflow: hidden;
+}
+
+/* Hamburger คงที่ไม่เลื่อน */
+#hamburger-menu {
+    position: fixed !important;  /* fixed ตาม viewport */
+    top: 20px !important;
+    left: 20px !important;
+    z-index: 99999 !important;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+#hamburger-menu span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #5b0808f9;
+    margin: 5px 0;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+#hamburger-menu.is-active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+#hamburger-menu.is-active span:nth-child(2) {
+    opacity: 0;
+}
+#hamburger-menu.is-active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Responsive สำหรับมือถือ ≤600px */
+@media (max-width: 600px) {
+  #hamburger-menu {
+    top: 15px !important;
+    left: 15px !important;
+  }
+}
+
+/* 📜 Sidebar */
+.navigation-menu1 {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  height: 100vh;
+  width: 250px;
+  background-color: #fdfdfd;
+  transition: left 0.3s ease-in-out;
+  z-index: 4000;
+  padding-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.navigation-menu1.is-active {
+  left: 0;
+}
+
+/* 🔖 โลโก้ใน sidebar */
+.side-logo1 {
+  display: block;
+  height: 70px;
+  margin: 0 auto 30px auto;
+}
+
+/* 🧾 รายการเมนู */
+.side-list1 {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+
+.side-list1 li {
+  margin-bottom: 20px;
+}
+
+.side-list1 a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #000;
+  font-family: 'Sukhumvit Set';
+  font-weight: bold;
+
+}
+
+.side-list1 a:hover {
+  background: #e6d9e6;
+}
+
+.icon1 {
+  width: 20px;
+  text-align: center;
+}
+
+/* 🌫️ Backdrop */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.2);
+  z-index: 3000;
+  display: none;
+}
+.backdrop.active {
+  display: block;
+}
+
+/* 📱 Responsive */
+@media (max-width: 600px) {
+  .navigation-menu1 {
+    width: 200px;
+    padding-top: 40px;
   }
 
-  .name_store {
-    font-size: 30px;
+  .side-list1 a {
+    padding: 8px 15px;
+    font-size: 18px;
+  }
+
+  .side-logo1 {
+    height: 60px;
+    margin-bottom: 20px;
+  }
+
+  .hamburger-icon1 {
+    top: 15px;
+    left: 15px;
   }
 }
 
 
 /* เมนู */
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo img {
+  height: 80px;
+}
+
+/* Menu */
 .menu {
-  display: flex;                 
-  flex-direction: row;           
-  align-items: center;           
-  justify-content: center;
-  flex-wrap: wrap;       
+  display: flex;
+  gap: 30px;
+  flex: 1; /* ขยายเต็มพื้นที่ตรงกลาง */
+  justify-content: center; /* จัดเมนูกลาง navbar */
 }
 
 .menu a {
   color: white;
   text-decoration: none;
   font-size: 16px;
-  margin: 0 20px;
-  font-family: "Prompt", sans-serif;
   font-weight: 500;
-  transition: all 0.3s ease;
+  transition: all 0.3s;
 }
 
 .menu a:hover {
@@ -114,59 +273,71 @@ body.bgBooth1 {
   transform: scale(1.05);
 }
 
-/*ไอคอนลงทะเบียน*/
-.icon-register {
-  width: 40px;              
-  height: auto;             
-  margin-left: 4px;         
-  vertical-align: middle;   
+/* Register */
+.icon-register-fixed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  position: relative; /* อยู่ใน flow navbar */
+  z-index: 2000;
 }
 
-/*  มือถือ (ต่ำกว่า 768px): เมนูเรียงแนวตั้ง */
-@media screen and (max-width: 768px) {
+.icon-register-fixed img {
+  width: 50px;
+}
+
+.icon-register-fixed span {
+  color: white;
+  font-size: 16px;
+  margin-top: 2px;
+}
+
+/* Responsive สำหรับมือถือ ≤768px */
+@media (max-width: 768px) {
   .navbar {
-    flex-direction: column;        
+    flex-direction: column;
     align-items: center;
+    height: auto;
+    padding: 15px 20px;
+    gap: 10px;
+  }
+
+  .logo img {
+    height: 60px;
   }
 
   .menu {
     flex-direction: column;
-    align-items: center;
+    gap: 12px;
+    justify-content: center;
   }
 
   .menu a {
-    margin: 10px 0;
-    font-size: 20px;
-  }
-
-  .logo {
-    margin-bottom: 10px;
-  }
-}
-
-/* แท็บเล็ต (601–1024px): เมนูแนวนอน */
-@media (min-width: 601px) and (max-width: 1024px) {
-  .menu {
-    display: flex;
-    flex-direction: row;      
-    justify-content: center;  
-    align-items: center;
-  }
-
-  .menu a {
-    margin: 0 15px;
     font-size: 18px;
   }
 
-  .long_line_of_junk_food img {
-    max-width: 90%;       
+  .icon-register-fixed {
+    position: fixed; /* คงที่ด้านบนขวา */
+    top: 15px;
+    right: 15px;
+  }
+
+  .icon-register-fixed img {
+    width: 40px;
+  }
+
+  .icon-register-fixed span {
+    font-size: 12px;
   }
 }
 
 /* รูปอาหารขยะยาว */
 .long_line_of_junk_food {
-  text-align: center;   
-  margin-top: 30px;     
+  text-align: center;
+  margin-top: 50px; /* ช่องว่างด้านบน */
+  margin-bottom: 40px; /* ช่องว่างด้านล่าง */
+  padding: 0 20px;
 }
 
 .long_line_of_junk_food img {
@@ -179,7 +350,7 @@ body.bgBooth1 {
 /*  มือถือ (จอเล็กกว่า 600px) */
 @media (max-width: 600px) {
   .long_line_of_junk_food {
-    margin-top: 20px;     
+    margin-top: 100px;     
     padding: 0 10px;
   }
 
@@ -203,6 +374,7 @@ body.bgBooth1 {
   color: #e814b3;
   font-family: "Mogra", cursive;
   margin: 40px 0 20px 0;
+  margin: 30px 0 20px 0; /* ช่องว่างบน/ล่าง */
 }
 
 /* 📱 มือถือ */

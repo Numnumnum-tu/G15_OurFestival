@@ -24,6 +24,12 @@ html, body {
   }
 }
 
+:root { 
+  --content-max: 960px;
+  --header-h: 80px; 
+  --footer-h: 60px;
+}
+
 body {
     display: flex;
     padding: 0px;
@@ -42,26 +48,40 @@ body {
     padding: 0;
 }
 
-.page {
-    display: flex;
-    flex: 1;
-    min-height: 0;
-}
 .toggle-btn {
-  position:absolute; 
+  position:fixed; 
   left:12px; 
   top:12px;
   font-size:24px; 
   background:transparent; 
   border:0; 
   cursor:pointer;
+  padding: 10px;
+  z-index: 1001;
 }
+
+.page { 
+  display:flex; 
+  flex:1; 
+  min-height: calc(100vh - var(--header-h,0px) - var(--footer-h,0px));
+}
+
 .left-side {
-  width: 240px;
+  position:fixed;
+  top: 0; 
+  left: 0; 
+  bottom: 0;
+  width: 260px;
   background: linear-gradient(#e7d8ec,#c5d4e0);
   padding:12px;
   box-sizing:border-box;
-  transition: width .2s ease;
+  transform: translateX(-100%);
+  transition: transform .25s ease;
+  z-index: 1000;
+}
+
+.left-side.active{
+  transform: translateX(0);
 }
 
 .side-list, .side-list ul { 
@@ -91,6 +111,13 @@ body {
 .icon{ 
   width:24px; 
   text-align:center; 
+}
+
+.side-logo {
+    margin-top: -13px;
+    height: 60px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .main-content { 

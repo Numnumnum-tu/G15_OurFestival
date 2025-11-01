@@ -1,0 +1,201 @@
+/* 🌸 Pastel Registration Theme
+   by ChatGPT | soft pink-blue-mint palette */
+
+:root {
+  --bg: #fdfbff;
+  --primary: #a0c4ff;       /* pastel blue */
+  --secondary: #ffc6ff;     /* soft pink */
+  --accent: #caffbf;        /* mint */
+  --text: #3a3a3a;
+  --error: #e56b6f;
+  --radius: 12px;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --transition: 0.25s ease;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Noto Sans Thai', 'Prompt', system-ui, sans-serif;
+}
+
+body {
+  background: linear-gradient(160deg, var(--secondary) 0%, var(--primary) 40%, var(--accent) 100%);
+  min-height: 100vh;
+  margin: 0;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+}
+
+main {
+  background: var(--bg);
+  width: min(94%, 820px);
+  padding: 2rem 2.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(6px);
+  animation: fadeIn 0.6s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+header {
+  text-align: center;
+  margin-bottom: 1.25rem;
+}
+
+.logo-wrap { display:flex; align-items:center; justify-content:center; margin-bottom:0.6rem; }
+h1 {
+  font-size: 1.8rem;
+  color: #4a4e69;
+  margin: 0;
+}
+
+p {
+  color: #5e5e5e;
+  font-size: 0.98rem;
+  margin-top: 0.35rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 0.6rem;
+}
+
+/* --- Form Rows --- */
+.form-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-row.inline { flex-direction: row; gap: 1rem; }
+.form-row.inline > div { flex: 1; }
+
+label, legend {
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: #444;
+}
+
+input, select, textarea {
+  padding: 0.65rem 0.8rem;
+  border: 2px solid #e0e0e0;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  outline: none;
+  transition: border var(--transition), box-shadow var(--transition);
+  background-color: #fff;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(160, 196, 255, 0.4);
+}
+
+fieldset {
+  border: 2px solid #f2f2f2;
+  border-radius: var(--radius);
+  padding: 0.8rem 1rem;
+}
+
+legend {
+  font-size: 1rem;
+  color: #555;
+  padding: 0 0.4rem;
+}
+
+input[type="radio"], input[type="checkbox"] {
+  accent-color: var(--primary);
+  margin-right: 0.6rem;
+}
+
+.agree { display:flex; align-items:center; gap:0.5rem; }
+
+/* --- Error messages --- */
+.error {
+  color: var(--error);
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+  min-height: 1em;
+}
+
+/* subtle helper text */
+.help { font-size: 0.9rem; color:#777; margin-top:0.25rem; }
+
+/* --- Button --- */
+button {
+  align-self: center;
+  margin-top: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.05rem;
+  border: none;
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: #fff;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: transform var(--transition), box-shadow var(--transition), filter var(--transition);
+}
+
+button:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+button:active {
+  transform: translateY(1px);
+  filter: brightness(0.95);
+}
+
+/* --- Table (summary page) --- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+
+th, td {
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #e6e6e6;
+  text-align: left;
+}
+
+thead th {
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  color: #fff;
+  font-weight: 700;
+}
+
+tbody tr:nth-child(even) {
+  background: #f9f9ff;
+}
+
+a {
+  color: #6a5acd;
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+a:hover {
+  color: #4b44c1;
+}
+
+.foot-note { margin-top: 1rem; color:#666; font-size:0.95rem; }
+
+/* --- Responsive --- */
+@media (max-width: 760px) {
+  main { padding: 1.25rem; }
+  h1 { font-size: 1.4rem; }
+  .form-row.inline { flex-direction: column; }
+  input, select, textarea { font-size: 0.95rem; }
+  button { font-size: 1rem; width: 100%; }
+}
