@@ -2,6 +2,7 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%; 
+  scroll-behavior: smooth;
 }
 
 /* bg content */
@@ -14,7 +15,7 @@ body.bgBooth3{
 /* logo */
 
 .bglogo{
-   background-color: #89CFF0;
+   background-color: #73bee0;
    padding: 5px 5px ;             
    display: flex;
    align-items: center;           
@@ -38,11 +39,12 @@ body.bgBooth3{
     font-weight: 400;
     font-style: normal;
     font-size: 35px;
-    color:#04688a;
+    color:#0c5f7a;
 }
+
 .menu a{
     text-decoration: none;
-    color: #11507a;
+    color: #284b63;
     font-size: 16px;
     margin: 10px 0px 10px 10px;
     font-family: "DM Serif Text", serif;
@@ -63,12 +65,14 @@ body.bgBooth3{
 }
 
 /* บล็อกสินค้า */
+
 .frame{
     display: flex; 
     gap: 30px; 
     margin: auto;
     flex-wrap: wrap;
 }
+
 .blush{
     margin-top: 30px;
     max-width: 50%; 
@@ -104,18 +108,10 @@ body.bgBooth3{
     font-size: 18px;
 }
 
-
-
-
-
-
-
-
-
-
-
 /* Hamburger */
-
+.hamburger{
+  background-color: blue;
+}
 
 .hamburger-icon {
   background: none;
@@ -130,7 +126,7 @@ body.bgBooth3{
   display: block;
   width: 25px;
   height: 3px;
-  background-color: #121111f9;
+  background-color: #0a4355f9;
   margin: 5px 0;
   transition: all 0.3s ease-in-out;
 }
@@ -141,13 +137,16 @@ body.bgBooth3{
   top: 0;
   height: 100vh;
   width: 250px;
-  background-color: #ffffff;
   left: -250px; 
   transition: left 0.3s ease-in-out, 
               box-shadow 0.3s ease-in-out; 
   z-index: 5; 
   padding-top: 80px; 
   
+}
+
+#nav-menu {
+  background-color: #efe3ef; 
 }
 
 .navigation-menu ul {
@@ -186,6 +185,7 @@ body.bgBooth3{
 /* Hamburger end */
 
 
+/* แถบเมนูใน Hamburger */
 
 .side-list > li { 
   margin:8px 0; 
@@ -229,4 +229,265 @@ body.bgBooth3{
     flex-direction: column;
     padding-bottom:0px;
 
+}
+
+/* แถบเมนูใน Hamburger end*/
+
+/* footer */
+.footer{
+    background-color: hsl(209, 86%, 78%);
+    padding: 10px 0;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: auto;
+}
+
+
+
+ 
+
+h2 {
+    color: #000000;
+}
+
+/* 1. Wrapper ใหม่สำหรับจัด Layout (Flexbox) */
+.main-slider-wrapper {
+    display: flex;
+    align-items: flex-start; /* ให้ชิดบน */
+    width: 900px; /* ความกว้างรวม */
+    max-width: 100%;
+    margin: 20px auto;
+}
+
+/* 2. ส่วนประกอบของสไลเดอร์ (สไลด์ + ปุ่ม) */
+.slider-component {
+    flex: 2; /* ให้สไลเดอร์กินพื้นที่ 2 ส่วน */
+    position: relative;
+}
+
+/* 3. กล่องข้อความด้านข้าง */
+.slider-text-content {
+    flex: 1; /* ให้ข้อความกินพื้นที่ 1 ส่วน */
+    margin-left: 20px;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+    min-height: 150px;
+}
+
+/* --- โค้ดสไลเดอร์เดิม (ปรับเล็กน้อย) --- */
+.slider-container {
+    width: 100%; /* เปลี่ยนเป็น 100% เพื่อให้ยืดตาม .slider-component */
+    margin: 0;
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    overflow: hidden; 
+    position: absolute;
+}
+
+.slider-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out; 
+}
+
+.slide {
+    width: 100%;
+    flex-shrink: 0;
+}
+
+.slide img {
+    width: 100%;
+    display: block;
+    height: 100%;
+    object-fit: cover;
+  }
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 10;
+}
+.slider-btn:hover {
+    background-color: rgba(255, 255, 255, 1);
+}
+.prev-btn { left: 10px; }
+.next-btn { right: 10px; }
+
+
+/* 4. สไตล์สำหรับปุ่มจุด (Dots) [เพิ่มใหม่] */
+.slider-nav {
+    text-align: center;
+    padding-top: 15px;
+}
+
+.dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-color: #c0c0c0;
+    border: none;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    padding: 0;
+    transition: background-color 0.3s ease;
+}
+
+/* สไตล์ของ .dot เมื่อถูก 'active' */
+.dot.active {
+    background-color: #333;
+}
+
+
+/* 5. (สำคัญ) ทำให้รองรับจอมือถือ [เพิ่มใหม่] */
+@media (max-width: 768px) {
+    .main-slider-wrapper {
+        flex-direction: column; /* เปลี่ยนเป็นเรียง บน-ล่าง */
+    }
+    .slider-text-content {
+        margin-left: 0; /* ลบระยะห่างด้านซ้าย */
+        margin-top: 20px; /* เพิ่มระยะห่างด้านบน */
+        width: 100%; /* ทำให้เต็มความกว้าง */
+        box-sizing: border-box; /* ป้องกันการล้น */
+    }
+    .slide img {
+        height: 300px; /* ลดความสูงสไลด์ในมือถือ */
+    }
+}
+
+h2 {
+    color: #333;
+}
+
+/* 1. Wrapper ใหม่สำหรับจัด Layout (Flexbox) */
+.main-slider-wrapper {
+    display: flex;
+    align-items: flex-start; /* ให้ชิดบน */
+    width: 900px; /* ความกว้างรวม */
+    max-width: 95%;
+    margin: 20px auto;
+}
+
+/* 2. ส่วนประกอบของสไลเดอร์ (สไลด์ + ปุ่ม) */
+.slider-component {
+    flex: 2; /* ให้สไลเดอร์กินพื้นที่ 2 ส่วน */
+    position: relative;
+}
+
+/* 3. กล่องข้อความด้านข้าง */
+.slider-text-content {
+    flex: 1; /* ให้ข้อความกินพื้นที่ 1 ส่วน */
+    margin-left: 20px;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+    min-height: 150px;
+}
+
+/* --- โค้ดสไลเดอร์เดิม (ปรับเล็กน้อย) --- */
+.slider-container {
+    width: 100%; /* เปลี่ยนเป็น 100% เพื่อให้ยืดตาม .slider-component */
+    margin: 0;
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    overflow: hidden; 
+}
+
+.slider-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out; 
+}
+
+.slide {
+    width: 100%;
+    flex-shrink: 0;
+}
+
+.slide img {
+    width: 100%;
+    display: block;
+    height: 400px;
+    object-fit: cover;
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 10;
+}
+.slider-btn:hover {
+    background-color: rgba(255, 255, 255, 1);
+}
+.prev-btn { left: 10px; }
+.next-btn { right: 10px; }
+
+
+/* 4. สไตล์สำหรับปุ่มจุด (Dots) [เพิ่มใหม่] */
+.slider-nav {
+    text-align: center;
+    padding-top: 15px;
+}
+
+.dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-color: #c0c0c0;
+    border: none;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    padding: 0;
+    transition: background-color 0.3s ease;
+}
+
+/* สไตล์ของ .dot เมื่อถูก 'active' */
+.dot.active {
+    background-color: #333;
+}
+
+
+/* 5. (สำคัญ) ทำให้รองรับจอมือถือ [เพิ่มใหม่] */
+@media (max-width: 768px) {
+    .main-slider-wrapper {
+        flex-direction: column; /* เปลี่ยนเป็นเรียง บน-ล่าง */
+    }
+    .slider-text-content {
+        margin-left: 0; /* ลบระยะห่างด้านซ้าย */
+        margin-top: 20px; /* เพิ่มระยะห่างด้านบน */
+        width: 100%; /* ทำให้เต็มความกว้าง */
+        box-sizing: border-box; /* ป้องกันการล้น */
+    }
+    .slide img {
+        height: 300px; /* ลดความสูงสไลด์ในมือถือ */
+    }
 }
