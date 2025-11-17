@@ -35,7 +35,6 @@ html, body {
 .body {
     display: flex;
     padding: 0px;
-    margin: 0;
     background-size: cover;
     width: 100%;
     overflow-x: hidden;
@@ -47,7 +46,7 @@ html, body {
     padding: 0;
 }
 body{
-  background: linear-gradient(#fed2ca,#e8ead6);
+  background: linear-gradient(#e7d8ec,#c5d4e0);
 }
 
 .toggle-btn {
@@ -173,7 +172,7 @@ header p {
 }
 
 .booth {
-  background: rgb(245, 243, 227);
+  background: rgb(253, 253, 253);
   border-radius: 15px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
   width: 280px;
