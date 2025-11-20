@@ -10,6 +10,22 @@ document.addEventListener('DOMContentLoaded', function() {
             navMenu.classList.toggle('is-active');
         });
     }
+document.addEventListener('click', function(event) {
+    const menu = document.querySelector('.navigation-menu');
+    const hamburger = document.querySelector('.hamburger-icon');
+
+    if (!menu || !hamburger) return;
+
+    if (menu.classList.contains('is-active')) {
+        
+        if (!menu.contains(event.target) && !hamburger.contains(event.target)) {
+            
+            menu.classList.remove('is-active');
+            hamburger.classList.remove('is-active');
+            
+       }
+    }
+});
 
     // รูปเลื่อนๆ
     
@@ -145,3 +161,31 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 });
+
+//ซ่อนลูกศรจากเมนู
+const hamburgerBtn = document.querySelector('.hamburger-icon');
+const sliderArrows = document.querySelectorAll('.slider-btn');
+
+function toggleArrows(hide) {
+    sliderArrows.forEach(arrow => {
+        arrow.style.display = hide ? 'none' : 'block';
+    });
+}
+
+if (hamburgerBtn) {
+    hamburgerBtn.addEventListener('click', function() {
+        const isOpening = !this.classList.contains('is-active'); 
+        
+        if (isOpening) {
+            toggleArrows(true);
+        } else {
+            setTimeout(() => toggleArrows(false), 300);
+        }
+    });
+}
+
+const navMenu = document.querySelector('.navigation-menu');
+if(navMenu){
+    navMenu.addEventListener('click', (e) => {
+    });
+}
