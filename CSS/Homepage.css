@@ -6,53 +6,72 @@
     font-display: swap;
 }
 
-:root { 
-  --content-max: 1080px;
-  --header-h: 70px; 
-  --footer-h: 60px;
-  --primary-gradient: linear-gradient(135deg, #ffc3a0 0%, #ffafbd 100%); /* Dreamy Peach/Pink */
-  --bg-gradient: linear-gradient(to bottom right, #e0c3fc 0%, #8ec5fc 100%); /* Purple to Blue Sky */
-  --glass-bg: rgba(255, 255, 255, 0.85);
-  --shadow-soft: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+:root {
+    --content-max: 1080px;
+    --header-h: 70px;
+    --footer-h: 60px;
+    --primary-gradient: linear-gradient(135deg, #ffc3a0 0%, #ffafbd 100%);
+    --bg-gradient: linear-gradient(to bottom right, #e0c3fc 0%, #8ec5fc 100%);
+    --glass-bg: rgba(255, 255, 255, 0.85);
+    --shadow-soft: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
 }
 
-html, body { 
-    height: 100%; 
-    margin: 0; 
+html,
+body {
+    height: 100%;
+    margin: 0;
 }
 
 body {
-    background: var(--bg-gradient);
-    background-attachment: fixed;
     font-family: 'Sukhumvit Set', sans-serif;
     display: flex;
     flex-direction: column;
     width: 100%;
     overflow-x: hidden;
     color: #4a4a4a;
+    position: relative;
+    min-height: 100vh;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-gradient);
+    z-index: -1;
+    will-change: transform;
 }
 
 /* --- Header --- */
 .Heading {
     background: linear-gradient(to bottom right, #ffffff 0%, #e0bbf1 100%);
     backdrop-filter: blur(8px);
-    position: fixed; top: 0; left: 0; right: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     height: var(--header-h);
-    display: flex; 
-    align-items: center; 
+    display: flex;
+    align-items: center;
     justify-content: center;
-    width: 100%; 
+    width: 100%;
     z-index: 100;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
-.heading-logo { height: 50px; margin-right: 10px; }
+.heading-logo {
+    height: 50px;
+    margin-right: 10px;
+}
 
 /* --- Layout & Containers --- */
-.main-content { 
+.main-content {
     flex: 1;
     display: flex;
-    padding: 20px; 
+    padding: 20px;
     padding-top: calc(var(--header-h) + 20px);
     box-sizing: border-box;
     justify-content: center;
@@ -81,11 +100,25 @@ h2 {
     -webkit-text-fill-color: transparent;
 }
 
-p { text-align: center; font-size: 1.1rem; color: #666; line-height: 1.6; }
-hr { border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0)); margin: 40px 0; }
+p {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+    margin: 40px 0;
+}
 
 /* --- Booth Sections --- */
-.booth-section { margin-bottom: 40px; }
+.booth-section {
+    margin-bottom: 40px;
+}
+
 .booth-title {
     font-size: 1.5rem;
     color: #555;
@@ -104,16 +137,19 @@ hr { border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0,
 
 .Homepage-picture {
     width: 100%;
-    height: 200px; /* Fix height for consistency */
-    object-fit: cover; /* Crop image nicely without stretching */
+    height: 200px;
+    /* Fix height for consistency */
+    object-fit: cover;
+    /* Crop image nicely without stretching */
     border-radius: 12px;
     transition: transform 0.3s, box-shadow 0.3s;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    will-change: transform, box-shadow;
 }
 
 .Homepage-picture:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
 /* --- Members Section (New Grid Design) --- */
@@ -127,22 +163,47 @@ hr { border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0,
 
 .member-card {
     background: white;
-    border-radius: 12px;
-    padding: 20px;
+    border-radius: 16px;
+    padding: 25px 20px;
     text-align: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    border: 1px solid #eee;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.5);
     transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.member-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, #ffc3a0, #ffafbd);
 }
 
 .member-card:hover {
     transform: translateY(-5px);
-    border-color: #ffafbd;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
-.member-card .name { display: block; font-weight: bold; font-size: 1.1rem; margin-bottom: 5px; color: #333; }
-.member-card .id { display: block; color: #888; font-size: 0.9rem; margin-bottom: 10px; }
-.member-card .role { 
+.member-card .name {
+    display: block;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.member-card .id {
+    display: block;
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.member-card .role {
     display: inline-block;
     background: #eff3f8;
     color: crimson;
@@ -152,53 +213,107 @@ hr { border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0,
     font-weight: bold;
 }
 
-/* --- Sidebar & Navigation --- */
 .toggle-btn {
-    position: absolute; left: 20px; top: 50%; transform: translateY(-50%);
-    font-size: 24px; background: transparent; border: 0; cursor: pointer; color: #555;
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    color: #555;
 }
 
 .left-side {
-    position: fixed; top: 0; left: 0; bottom: 0; width: 280px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 280px;
     background: white;
     padding: 20px;
-    box-shadow: 2px 0 10px rgba(0,0,0,0.05);
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
     transform: translateX(-100%);
     transition: transform .3s ease-in-out;
     z-index: 1000;
 }
 
-.side-logo { width: 100%; max-width: 150px; margin: 0 auto 20px; display: block; }
-.side-list { list-style: none; padding: 0; }
-.side-list li { margin-bottom: 10px; }
+.side-logo {
+    width: 100%;
+    max-width: 150px;
+    margin: 0 auto 20px;
+    display: block;
+}
+
+.side-list {
+    list-style: none;
+    padding: 0;
+}
+
+.side-list li {
+    margin-bottom: 10px;
+}
+
 .side-list a {
-    display: flex; align-items: center; gap: 15px;
-    padding: 12px 15px; border-radius: 10px;
-    text-decoration: none; color: #555;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 15px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #555;
     transition: background 0.2s;
 }
-.side-list a:hover { background: #f0f4f8; color: #333; }
-.icon { font-size: 1.2rem; width: 30px; text-align: center; }
 
-body.sidebar-open .left-side { transform: translateX(0); }
-.drawer-backdrop {
-    position: fixed; inset: 0; background: rgba(0,0,0,0.3);
-    opacity: 0; pointer-events: none; transition: opacity 0.3s; z-index: 900;
+.side-list a:hover {
+    background: #f0f4f8;
+    color: #333;
 }
-body.sidebar-open .drawer-backdrop { opacity: 1; pointer-events: auto; }
+
+.icon {
+    font-size: 1.2rem;
+    width: 30px;
+    text-align: center;
+}
+
+body.sidebar-open .left-side {
+    transform: translateX(0);
+}
+
+.drawer-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    z-index: 900;
+}
+
+body.sidebar-open .drawer-backdrop {
+    opacity: 1;
+    pointer-events: auto;
+}
 
 /* --- Footer --- */
 .footer {
     background: linear-gradient(to bottom right, #ffffff 0%, #e0bbf1 100%);
     padding: 15px 0;
     text-align: center;
-    box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
 }
 
 /* --- Mobile Responsive --- */
 @media (max-width: 768px) {
-    .main-content-container { padding: 20px; }
-    h2 { font-size: 1.8rem; }
+    .main-content-container {
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
     .booth-image-content {
         grid-template-columns: 1fr;
     }
