@@ -1,39 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Booth Directory Page</title>
-    <link rel="icon" type="image/png" href="img/G15_logo.png">
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
+    
     <link rel="stylesheet" href="CSS/Booth Directory Page.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;600;800&family=Mogra&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <a href="index.html">
-        <img src="img/G15_logo.png" class="Homepage-logo">
-    </a>
-    <div class="bg-quarters" aria-hidden="true">
-        <div class="q q1">
-            <img src="img/pizza.jpg" class="booth-image">
-        </div>
-        <div class="q q2">
-            <img src="img/cakebooth3.jpg" class="booth-image">
-        </div>
-        <div class="q q3">
-            <img src="img/makeupbooth2.jpg" class="booth-image">
-        </div>
-        <div class="q q4">
-            <img src="img/activebooth2.jpg" class="booth-image">
-        </div>
-    </div>
-    <div class="content-grid" aria-label="Booth directory">
-        <div class="cell-c1"><a href="Booth1 Page.html">Grease & Cheese</a></div>
-        <div class="cell-c2"><a href="Booth2 Page.html">KANOMWHANNN</a></div>
-        <div class="cell-c3"><a href="Booth3 Page.html">Make Up Booth</a></div>
-        <div class="cell-c4"><a href="Booth4 Page.html">Activities</a></div>
-    </div>
-    
-</body>
 
+    <div class="container">
+        <a href="Booth1 Page.html" class="booth-card c1">
+            <img src="img/HamBurger.jpg" class="booth-bg" alt="Pizza">
+            <div class="booth-overlay"></div>
+            <div class="booth-label">Grease & Cheese</div>
+        </a>
+
+        <a href="Booth2 Page.html" class="booth-card c2">
+            <img src="img/cakebooth2.jpg" class="booth-bg" alt="Cake">
+            <div class="booth-overlay"></div>
+            <div class="booth-label">KANOMWHANNN</div>
+        </a>
+
+        <a href="Booth3 Page.html" class="booth-card c3">
+            <img src="img/B3 Make Up.jpg" class="booth-bg" alt="Makeup">
+            <div class="booth-overlay"></div>
+            <div class="booth-label">Make Up Booth</div>
+        </a>
+
+        <a href="Booth4 Page.html" class="booth-card c4">
+            <img src="img/ซุ้มยิงปืน.jpg" class="booth-bg" alt="Activities">
+            <div class="booth-overlay"></div>
+            <div class="booth-label">Activities</div>
+        </a>
+
+        <a href="index.html" class="home-center" aria-label="Go to Homepage">
+            <img src="img/G15_logo.png" alt="Home Logo">
+        </a>
+    </div>
+
+</body>
 </html>

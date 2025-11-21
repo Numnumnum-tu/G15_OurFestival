@@ -1,205 +1,173 @@
-@import url("https://fonts.googleapis.com/css2?family=Mogra&display=swap");
+/* --- ตั้งค่าพื้นฐาน --- */
+:root {
+    --color-q1: rgb(250, 222, 171);
+    --color-q2: #ffb6c1;
+    --color-q3: #C9E2F3;
+    --color-q4: #f0fcc1;
+    --text-color: #333;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
 body {
-  font-family: 'Sukhumvit Set', sans-serif;
-}
-@font-face {
-    font-family: 'Sukhumvit Set';
-    src: url('../fonts/SukhumvitSet-Bold.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
+    font-family: 'Kanit', sans-serif;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden; /* ป้องกัน Scrollbar ในจอใหญ่ */
+    background-color: #fff;
 }
 
-@media (max-width: 520px) {
-  .content-grid .cell a {
-    font-size: 1rem;
-    padding: 8px 10px;
-  }
-  .center-home {
-    font-size: 1.6rem;
-    padding: 10px 12px;
-  }
+/* --- Grid Layout หลัก --- */
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    height: 100%;
+    width: 100%;
+    position: relative;
 }
 
-.bg-quarters {
-  position: fixed;
-  inset: 0; /* top:0; right:0; bottom:0; left:0 */
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  z-index: -1; /* sit behind page content */
-}
-.bg-quarters .q {
-  width: 100%;
-  height: 100%;
-}
-.bg-quarters .q1 {
-  background: rgb(250, 222, 171);
-}
-.bg-quarters .q2 {
-  background: #ffb6c1;
-}
-.bg-quarters .q3 {
-  background: #C9E2F3;
-}
-.bg-quarters .q4 {
-  background: #f0fcc1;
+/* --- สไตล์ของแต่ละช่อง (Card) --- */
+.booth-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    overflow: hidden; /* เพื่อให้ภาพซูมไม่ล้นกรอบ */
+    color: var(--text-color);
+    transition: all 0.3s ease;
 }
 
-.body {
-  margin: 0;
-  min-height: 100vh;
-  position: relative;
+/* ภาพพื้นหลังของแต่ละช่อง */
+.booth-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    opacity: 0.8;
+    z-index: 1;
 }
 
-.menu {
-  position: relative;
-  z-index: 1;
-  padding: 20px;
+/* เลเยอร์สีทับภาพ (Overlay) เพื่อให้อ่านตัวหนังสือออก */
+.booth-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
 }
 
-.content-grid {
-  position: fixed;
-  inset: 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  z-index: 1;
-  pointer-events: none;
+/* ป้ายชื่อร้าน */
+.booth-label {
+    position: relative;
+    z-index: 3;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    backdrop-filter: blur(5px);
+    min-width: 200px;
 }
 
-.content-grid .cell-c1{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: auto;
+/* --- การกำหนดสีและภาพแต่ละโซน --- */
+.c1 .booth-overlay { background-color: var(--color-q1); }
+.c2 .booth-overlay { background-color: var(--color-q2); }
+.c3 .booth-overlay { background-color: var(--color-q3); }
+.c4 .booth-overlay { background-color: var(--color-q4); }
+
+/* ใส่สี Border ให้ปุ่มเข้ากับธีม */
+.c1 .booth-label { border: 3px solid var(--color-q1); color: #8a6d3b; }
+.c2 .booth-label { border: 3px solid var(--color-q2); color: #a94442; }
+.c3 .booth-label { border: 3px solid var(--color-q3); color: #31708f; }
+.c4 .booth-label { border: 3px solid var(--color-q4); color: #3c763d; }
+
+/* --- Hover Effects (ลูกเล่นเมื่อเอาเมาส์ชี้) --- */
+.booth-card:hover .booth-bg {
+    transform: scale(1.1); /* ซูมภาพ */
+    opacity: 1;
 }
 
-.content-grid .cell-c2{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: auto;
+.booth-card:hover .booth-overlay {
+    opacity: 0.4; /* ทำให้สีจางลงเพื่อให้เห็นภาพชัดขึ้น */
 }
 
-.content-grid .cell-c3{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: auto;
+.booth-card:hover .booth-label {
+    transform: scale(1.05) translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
 
-.content-grid .cell-c4{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: auto;
+/* --- ปุ่ม Home ตรงกลาง (Center Logo) --- */
+.home-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    width: 120px;
+    height: 120px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.3), 
+                0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-decoration: none;
 }
 
-.content-grid .cell-c1 a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: auto;
-  text-decoration: none;
-  color: #111;
-  font-weight: 700;
-  font-size: 1.4rem;
-  padding: 10px 14px;
-  border-radius: 8px;
-  position: relative;
-  z-index: 2;
-  background-color: rgb(250, 222, 171);
+.home-center img {
+    width: 70%;
+    height: auto;
 }
 
-.content-grid .cell-c2 a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: auto;
-  text-decoration: none;
-  color: #111;
-  font-weight: 700;
-  font-size: 1.4rem;
-  padding: 10px 14px;
-  border-radius: 8px;
-  position: relative;
-  z-index: 2;
-  background-color: #ffb6c1;
+.home-center:hover {
+    transform: translate(-50%, -50%) scale(1.1);
 }
 
-.content-grid .cell-c3 a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: auto;
-  text-decoration: none;
-  color: #111;
-  font-weight: 700;
-  font-size: 1.4rem;
-  padding: 10px 14px;
-  border-radius: 8px;
-  position: relative;
-  z-index: 2;
-  background-color: #C9E2F3;
-}
+@media (max-width: 768px) {
+    body {
+        height: auto;
+    }
+    
+    .container {
+        grid-template-columns: 1fr; /* เรียงเป็นแถวเดียว */
+        grid-template-rows: repeat(4, 250px); /* ความสูงแต่ละช่อง */
+        height: auto;
+    }
 
-.content-grid .cell-c4 a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: auto;
-  text-decoration: none;
-  color: #111;
-  font-weight: 700;
-  font-size: 1.4rem;
-  padding: 10px 14px;
-  border-radius: 8px;
-  position: relative;
-  z-index: 2;
-  background-color: #f0fcc1;
-}
+    .booth-label {
+        font-size: 1.2rem;
+        padding: 10px 20px;
+        min-width: auto;
+        width: 80%;
+    }
 
-
-.booth-logo {
-  height: 90px;
-  width: auto;
-  position: absolute;
-  z-index: 1;
-  transform: translate(-50%, -50%);
-  left: 50%;
-  top: 50%;
-  opacity: 0.6;
-}
-
-.cell.c1 .booth-logo {
-  opacity: 0.6;  
-}
-.cell.c3 .booth-logo {
-  opacity: 0.6; 
-  height: 140px; 
-}
-
-.Homepage-logo {
-  margin-top: 20px;
-  align-items: center;
-  position: relative;
-  left: 50%;
-  top: 40%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  padding: 12px 28px;
-  border-radius: 10px;
-  background-color: white;
-  width: 100px;
-}
-
-.booth-image {
-  aspect-ratio: 16 /9;
-  width: 100%; 
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease-in-out;
-  opacity: 70%;
+    .home-center {
+        width: 90px;
+        height: 90px;
+        position: fixed; /* ลอยติดหน้าจอ */
+        bottom: 20px;
+        right: 20px;
+        top: auto;
+        left: auto;
+        transform: none;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    }
+    
+    .home-center:hover {
+        transform: scale(1.1);
+    }
 }
