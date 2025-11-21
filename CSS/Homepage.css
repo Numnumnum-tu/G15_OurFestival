@@ -23,7 +23,7 @@ html, body {
 
 body {
     background: var(--bg-gradient);
-    background-attachment: fixed; /* ให้พื้นหลังอยู่กับที่เวลาเลื่อน */
+    background-attachment: fixed;
     font-family: 'Sukhumvit Set', sans-serif;
     display: flex;
     flex-direction: column;
@@ -34,7 +34,7 @@ body {
 
 /* --- Header --- */
 .Heading {
-    background: rgba(255, 255, 255, 0.9);
+    background: linear-gradient(to bottom right, #ffffff 0%, #e0bbf1 100%);
     backdrop-filter: blur(8px);
     position: fixed; top: 0; left: 0; right: 0;
     height: var(--header-h);
@@ -189,7 +189,7 @@ body.sidebar-open .drawer-backdrop { opacity: 1; pointer-events: auto; }
 
 /* --- Footer --- */
 .footer {
-    background: white;
+    background: linear-gradient(to bottom right, #ffffff 0%, #e0bbf1 100%);
     padding: 15px 0;
     text-align: center;
     box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
@@ -199,4 +199,7 @@ body.sidebar-open .drawer-backdrop { opacity: 1; pointer-events: auto; }
 @media (max-width: 768px) {
     .main-content-container { padding: 20px; }
     h2 { font-size: 1.8rem; }
+    .booth-image-content {
+        grid-template-columns: 1fr;
+    }
 }
