@@ -1,19 +1,22 @@
 <?php
 
+date_default_timezone_set('Asia/Bangkok');
+
 $jsonFile = __DIR__ . '/data/feedbacks.json';
 $items = [];
 if (file_exists($jsonFile)) {
     $items = json_decode(file_get_contents($jsonFile), true);
     if (!is_array($items)) $items = [];
 }
+
+
 usort($items, function($a, $b){
     $ta = $a['timestamp'] ?? ($a['created_at'] ?? '');
     $tb = $b['timestamp'] ?? ($b['created_at'] ?? '');
     return strcmp($tb, $ta);
 });
+
 function e($s) { return htmlspecialchars((string)$s, ENT_QUOTES, 'UTF-8'); }
-
-
 ?>
 <!doctype html>
 <html lang="th">
@@ -27,11 +30,11 @@ function e($s) { return htmlspecialchars((string)$s, ENT_QUOTES, 'UTF-8'); }
 </head>
 <body>
   <div class="Heading">
-    <button id="sidebarToggle" class="toggle-btn">☰</button>
+    <button id="sidebarToggle" class="toggle-btn" aria-expanded="false">☰</button>
     <img src="img/G15_logo.png" class="heading-logo" alt="Logo">
   </div>
 
-  <aside id="leftSide" class="left-side">
+  <aside id="leftSide" class="left-side" aria-hidden="true">
     <nav>
       <img src="img/G15_logo.png" class="side-logo" alt="Logo Sidebar">
       <ul class="side-list">
@@ -48,6 +51,8 @@ function e($s) { return htmlspecialchars((string)$s, ENT_QUOTES, 'UTF-8'); }
     </nav>
   </aside>
 
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+
   <div class="fb-container">
     <header class="page-header">
       <h1>ความคิดเห็นทั้งหมด</h1>
@@ -57,7 +62,6 @@ function e($s) { return htmlspecialchars((string)$s, ENT_QUOTES, 'UTF-8'); }
           <input type="text" name="q" id="q" placeholder="ค้นหาคำในความคิดเห็น..." value="<?php echo e($_GET['q'] ?? ''); ?>">
           <button type="submit" class="btn">ค้นหา</button>
         </form>
-        
       </div>
     </header>
 
@@ -68,7 +72,7 @@ function e($s) { return htmlspecialchars((string)$s, ENT_QUOTES, 'UTF-8'); }
         $count = 0;
       ?>
 
-      <div class="fb-cards">
+      <div class="fb-cards" role="list">
         <?php foreach ($items as $fb):
           if ($q !== '') {
             $hay = mb_strtolower( ($fb['name'] ?? '') . ' ' . ($fb['like'] ?? '') . ' ' . ($fb['improve'] ?? ''), 'UTF-8');
@@ -82,11 +86,12 @@ function e($s) { return htmlspecialchars((string)$s, ENT_QUOTES, 'UTF-8'); }
           $improve = nl2br(e($fb['improve'] ?? ''));
           $ts = e($fb['timestamp'] ?? ($fb['created_at'] ?? ''));
         ?>
-          <article class="fb-card" role="article">
+          <article class="fb-card" role="listitem">
             <div class="fb-meta"><strong class="name"><?php echo $name; ?></strong><?php echo $gender ? " / ". $gender : ''; ?></div>
+
             <div class="fb-stars" aria-hidden="true">
               <?php for ($s=1;$s<=5;$s++): ?>
-                <span class="star<?php echo $s <= $rating ? ' active' : ''; ?>"><?php echo '★'; ?></span>
+                <span class="star<?php echo $s <= $rating ? ' active' : ''; ?>">★</span>
               <?php endfor; ?>
               <span style="margin-left:8px; color:#666; font-size:.95rem;"><?php echo $rating; ?>/5</span>
             </div>
@@ -114,10 +119,10 @@ function e($s) { return htmlspecialchars((string)$s, ENT_QUOTES, 'UTF-8'); }
     </main>
   </div>
 
-  <div class="drawer-backdrop" id="drawerBackdrop"></div>
-
   <div class="footer">
     <p>© 2025 Dreamy Cloud Festival | Group 15</p>
   </div>
+
+
 </body>
 </html>
