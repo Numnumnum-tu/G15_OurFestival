@@ -2,10 +2,8 @@
 date_default_timezone_set('Asia/Bangkok');
 $jsonFile = __DIR__ . '/data/registrants.json';
 
-// --- ส่วนบันทึกข้อมูล ---
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
-    // Logic จัดการคณะ: ถ้าเลือก Other ให้ใช้ค่าจาก text input
     $faculty = $_POST['faculty_select'] ?? '';
     if ($faculty === 'Other') {
         $faculty = $_POST['faculty_other'] ?? 'ไม่ระบุ';
@@ -14,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $newData = [
         'fullname' => htmlspecialchars($_POST['fullname'] ?? ''),
         'email' => htmlspecialchars($_POST['email'] ?? ''),
-        'faculty' => htmlspecialchars($faculty), // เก็บค่าคณะที่ผ่าน Logic แล้ว
+        'faculty' => htmlspecialchars($faculty), 
         'year_level' => htmlspecialchars($_POST['year_level'] ?? ''),
         'timestamp' => date("d/m/Y H:i:s")
     ];
@@ -29,7 +27,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     file_put_contents($jsonFile, json_encode($currentData, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
 }
 
-// --- ส่วนโหลดข้อมูล ---
 $registrants = [];
 if (file_exists($jsonFile)) {
     $registrants = json_decode(file_get_contents($jsonFile), true);
