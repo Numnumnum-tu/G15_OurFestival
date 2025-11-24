@@ -1,5 +1,4 @@
 <?php
-
 date_default_timezone_set('Asia/Bangkok');
 
 $jsonFile = __DIR__ . '/data/feedbacks.json';
@@ -8,7 +7,6 @@ if (file_exists($jsonFile)) {
     $items = json_decode(file_get_contents($jsonFile), true);
     if (!is_array($items)) $items = [];
 }
-
 
 usort($items, function($a, $b){
     $ta = $a['timestamp'] ?? ($a['created_at'] ?? '');
@@ -23,9 +21,15 @@ function e($s) { return htmlspecialchars((string)$s, ENT_QUOTES, 'UTF-8'); }
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>All Feedback</title>
+  <title>All Feedback - Dreamy Cloud</title>
   <link rel="icon" type="image/png" href="img/G15_logo.png">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="CSS/Leave Your Feedback Page.css">
+
+  <link rel="stylesheet" href="CSS/show_feedback.css">
+
   <script src="Javascript/feedback.js" defer></script>
 </head>
 <body>
@@ -55,11 +59,11 @@ function e($s) { return htmlspecialchars((string)$s, ENT_QUOTES, 'UTF-8'); }
 
   <div class="fb-container">
     <header class="page-header">
-      <h1>ความคิดเห็นทั้งหมด</h1>
+      <h1>☁️ ความคิดเห็นทั้งหมด</h1>
 
       <div class="fb-search-row">
-        <form method="get" style="display:flex; width:100%; max-width:600px; gap:12px; align-items:center;">
-          <input type="text" name="q" id="q" placeholder="ค้นหาคำในความคิดเห็น..." value="<?php echo e($_GET['q'] ?? ''); ?>">
+        <form method="get">
+          <input type="text" name="q" id="q" placeholder="ค้นหา... (เช่น ชื่อ, สิ่งที่ชอบ)" value="<?php echo e($_GET['q'] ?? ''); ?>">
           <button type="submit" class="btn">ค้นหา</button>
         </form>
       </div>
@@ -79,50 +83,61 @@ function e($s) { return htmlspecialchars((string)$s, ENT_QUOTES, 'UTF-8'); }
             if (mb_strpos($hay, $qLower) === false) continue;
           }
           $count++;
-          $name = e($fb['name'] ?? '');
+          $name = e($fb['name'] ?? 'ไม่ระบุชื่อ');
           $gender = e($fb['gender'] ?? '');
           $rating = intval($fb['rating'] ?? 0);
-          $like = nl2br(e($fb['like'] ?? ''));
-          $improve = nl2br(e($fb['improve'] ?? ''));
+          $like = nl2br(e($fb['like'] ?? '-'));
+          $improve = nl2br(e($fb['improve'] ?? '-'));
           $ts = e($fb['timestamp'] ?? ($fb['created_at'] ?? ''));
         ?>
           <article class="fb-card" role="listitem">
-            <div class="fb-meta"><strong class="name"><?php echo $name; ?></strong><?php echo $gender ? " / ". $gender : ''; ?></div>
+            <div class="fb-meta">
+                <div>
+                    <strong class="name"><?php echo $name; ?></strong>
+                </div>
+                <?php if($gender): ?>
+                    <span class="gender-badge"><?php echo $gender; ?></span>
+                <?php endif; ?>
+            </div>
 
             <div class="fb-stars" aria-hidden="true">
               <?php for ($s=1;$s<=5;$s++): ?>
                 <span class="star<?php echo $s <= $rating ? ' active' : ''; ?>">★</span>
               <?php endfor; ?>
-              <span style="margin-left:8px; color:#666; font-size:.95rem;"><?php echo $rating; ?>/5</span>
+              <span class="rating-number">(<?php echo $rating; ?>/5)</span>
             </div>
 
-            <div class="fb-row">
-              <div class="label">ชอบ</div>
-              <div class="content"><?php echo $like; ?></div>
+            <div class="fb-row like-section">
+              <div class="label">❤️ สิ่งที่ชอบ</div>
+              <div class="content-box"><?php echo $like; ?></div>
             </div>
 
-            <div class="fb-row">
-              <div class="label">ควรปรับปรุง</div>
-              <div class="content"><?php echo $improve; ?></div>
+            <div class="fb-row improve-section">
+              <div class="label">🛠️ ควรปรับปรุง</div>
+              <div class="content-box"><?php echo $improve; ?></div>
             </div>
 
-            <div class="fb-row footer"><small class="ts"><?php echo $ts; ?></small></div>
+            <div class="fb-row footer">
+                <small class="ts">📅 <?php echo $ts; ?></small>
+            </div>
           </article>
         <?php endforeach; ?>
       </div>
 
       <?php if ($count === 0): ?>
-        <p class="no-data">ไม่พบความคิดเห็น<?php echo $q ? " ที่ตรงกับ “".e($q)."”" : ''; ?>.</p>
+        <div class="no-data-msg">
+            <p>ไม่พบความคิดเห็น <?php echo $q ? " ที่ตรงกับ “".e($q)."”" : ''; ?></p>
+        </div>
       <?php else: ?>
-        <p class="muted" style="text-align:center; margin-top:18px;">พบความคิดเห็นทั้งหมด <?php echo $count; ?> รายการ.</p>
+        <p class="count-msg">
+            พบทั้งหมด <?php echo $count; ?> รายการ
+        </p>
       <?php endif; ?>
     </main>
   </div>
 
-  <div class="footer">
+  <div class="footer-site">
     <p>© 2025 Dreamy Cloud Festival | Group 15</p>
   </div>
-
-
 </body>
 </html>
