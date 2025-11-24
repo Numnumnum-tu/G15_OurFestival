@@ -1,126 +1,121 @@
-<!doctype html>
-<html lang="th">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Our Festival — Registration</title>
-  <link rel="icon" type="image/png" href="img/G15_logo.png">
-  <link rel="stylesheet" href="CSS\Registration Page.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration - Dreamy Cloud Festival</title>
+    <link rel="icon" type="image/png" href="img/G15_logo.png">
+    <link rel="stylesheet" href="CSS/Registration Page.css">
+    <script src="Javascript/Registration.js" defer></script>
 </head>
 <body>
-  <main>
-    <header>
-      <div class="logo-wrap" aria-hidden="true">
-        <svg width="72" height="72" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Our Festival logo">
-          <defs>
-            <linearGradient id="g1" x1="0" x2="1">
-              <stop offset="0" stop-color="#a0c4ff"/>
-              <stop offset="1" stop-color="#ffc6ff"/>
-            </linearGradient>
-          </defs>
-          <rect rx="20" width="120" height="120" fill="url(#g1)"/>
-          <g transform="translate(18,18)" fill="#fff">
-            <circle cx="24" cy="24" r="6" opacity="0.95"/>
-            <rect x="44" y="10" width="10" height="28" rx="5" opacity="0.95"/>
-            <path d="M6 46c6 5 18 8 34 0 14-7 20-2 26 4" stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
-          </g>
-        </svg>
-      </div>
 
-      <h1>Our Festival — ลงทะเบียน</h1>
-      <p>กรุณากรอกข้อมูลด้านล่างเพื่อเข้าร่วมกิจกรรม</p>
-    </header>
+    <div class="Heading">
+        <button id="sidebarToggle" class="toggle-btn">☰</button>
+        <img src="img/G15_logo.png" class="heading-logo" alt="Logo">
+    </div>
 
-    <form id="regForm" novalidate>
-      <div class="form-row">
-        <label for="fullname">ชื่อ-สกุล *</label>
-        <input id="fullname" name="fullname" type="text" required placeholder="เช่น ฉัตร ธาดาวรวงศ์">
-        <div class="error" id="err-fullname"></div>
-      </div>
+    <aside id="leftSide" class="left-side">
+        <nav>
+            <img src="img/G15_logo.png" class="side-logo" alt="Logo Sidebar">
+            <ul class="side-list">
+                <li><a href="index.html"><span class="icon">🏠</span>Homepage</a></li>
+                <li><a href="Booth Directory Page.html"><span class="icon">📂</span>Booth Directory</a></li>
+                <li style="padding-left: 20px;"><a href="Booth1 Page.html"><span class="icon">•</span>Booth 1</a></li>
+                <li style="padding-left: 20px;"><a href="Booth2 Page.html"><span class="icon">•</span>Booth 2</a></li>
+                <li style="padding-left: 20px;"><a href="Booth3 Page.html"><span class="icon">•</span>Booth 3</a></li>
+                <li style="padding-left: 20px;"><a href="Booth4 Page.html"><span class="icon">•</span>Booth 4</a></li>
+                
+                <li><a href="Registration Page.html"><span class="icon">📝</span>Registration</a></li>
+                <li style="padding-left: 20px;">
+                    <a href="registration_summary.php" style="color: #59a8ff; font-size: 0.9em;">
+                        <span class="icon">🔍</span>Check List
+                    </a>
+                </li>
 
-      <div class="form-row inline">
-        <div>
-          <label for="studentId">รหัสนักศึกษา *</label>
-          <input id="studentId" name="studentId" type="text" required pattern="^\d{9,10}$" placeholder="ไม่ใช่เลขบัตรประชาชน">
-          <div class="error" id="err-studentId"></div>
-        </div>
+                <li><a href="Leave Your Feedback Page.html"><span class="icon">💬</span>Feedback</a></li>
+                <li style="padding-left: 20px;"><a href="show_feedback.php"><span class="icon">•</span>View all feedback</a></li>
+            </ul>
+        </nav>
+    </aside>
 
-        <div>
-          <label for="year">ชั้นปี</label>
-          <select id="year" name="year">
-            <option value="">-- เลือกปี --</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-          </select>
-        </div>
-      </div>
+    <div class="regis-container">
+        <form id="regisForm" action="registration_summary.php" method="POST" novalidate>
+            
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h2 style="margin: 0;">📝 ลงทะเบียนเข้าร่วมงาน</h2>
+                <a href="registration_summary.php" class="mini-btn-view">
+                    ดูรายชื่อ
+                </a>
+            </div>
 
-      <div class="form-row">
-        <label for="email">อีเมล *</label>
-        <input id="email" name="email" type="email" required placeholder="อีเมลของทางมหาลัย">
-        <div class="error" id="err-email"></div>
-      </div>
+            <p style="text-align:center; color:#666; margin-bottom: 20px;">กรอกข้อมูลเพื่อรับสิทธิ์เข้าชมโซนพิเศษ</p>
 
-      <div class="form-row">
-        <label for="phone">เบอร์โทรศัพท์ *</label>
-        <input id="phone" name="phone" type="tel" required pattern="^\+?\d{9,15}$" placeholder="เช่น 0812345678">
-        <div class="error" id="err-phone"></div>
-      </div>
+            <div class="form-group">
+                <label for="fullname">ชื่อ-นามสกุล (Full Name)</label>
+                <input type="text" id="fullname" name="fullname" placeholder="ระบุชื่อและนามสกุล" required>
+                <small class="error-msg">กรุณากรอกชื่อ-นามสกุล</small>
+            </div>
 
-      <div class="form-row">
-        <label for="major">สาขา/คณะ</label>
-        <select id="major" name="major">
-          <option value="">-- เลือกสาขา --</option>
-          <option>คณะสังคมสงเคราะห์ศาสตร์</option>
-          <option>คณะศิลปศาสตร์</option>
-          <option>คณะวิทยาศาสตร์และเทคโนโลยี</option>
-          <option>อื่น ๆ</option>
-        </select>
-      </div>
+            <div class="form-group">
+                <label for="email">อีเมล (Email)</label>
+                <input type="text" id="email" name="email" placeholder="example@email.com" required>
+                <small class="error-msg">กรุณากรอกอีเมลให้ถูกต้อง</small>
+            </div>
 
-      <fieldset class="form-row">
-        <legend>ได้รับเว็บไซต์นี้จากไหน *</legend>
-        <label><input type="radio" name="role" value="Frontend" required> ไอจี</label>
-        <label><input type="radio" name="role" value="Backend"> เฟส</label>
-        <label><input type="radio" name="role" value="Designer"> เพื่อนแนะนำมา</label>
-        <div class="error" id="err-role"></div>
-      </fieldset>
+            <div class="form-group">
+                <label for="faculty_select">มาจากคณะ / สาขา (Faculty / Major)</label>
+                <select id="faculty_select" name="faculty_select" required>
+                    <option value="" disabled selected>-- กรุณาเลือกคณะ --</option>
+                    <option value="Computer Science">วิทยาการคอมพิวเตอร์ (Computer Science)</option>
+                    <option value="Other">อื่นๆ (โปรดระบุ)</option>
+                </select>
+                <input type="text" id="faculty_other" name="faculty_other" placeholder="ระบุชื่อคณะของคุณ..." style="display: none; margin-top: 10px;">
+                <small class="error-msg">กรุณาระบุคณะของคุณ</small>
+            </div>
 
-      <fieldset class="form-row">
-        <legend>สนใจบูธ</legend>
-        <label><input type="checkbox" name="interests" value="Food"> อาหาร</label>
-        <label><input type="checkbox" name="interests" value="Merch"> สินค้า</label>
-        <label><input type="checkbox" name="interests" value="Games"> มินิเกม</label>
-      </fieldset>
+            <div class="form-group">
+                <label>ชั้นปี (Year Level)</label>
+                <div class="radio-group">
+                    <label class="radio-item">
+                        <input type="radio" name="year_level" value="ปี 1" required>
+                        <span>ปี 1</span>
+                    </label>
+                    <label class="radio-item">
+                        <input type="radio" name="year_level" value="ปี 2">
+                        <span>ปี 2</span>
+                    </label>
+                    <label class="radio-item">
+                        <input type="radio" name="year_level" value="ปี 3">
+                        <span>ปี 3</span>
+                    </label>
+                    <label class="radio-item">
+                        <input type="radio" name="year_level" value="ปี 4">
+                        <span>ปี 4</span>
+                    </label>
+                    <label class="radio-item">
+                        <input type="radio" name="year_level" value="อื่นๆ">
+                        <span>อื่นๆ</span>
+                    </label>
+                </div>
+                <small class="error-msg" id="radio-error">กรุณาระบุชั้นปี</small>
+            </div>
 
-      <div class="form-row">
-        <label for="attendDate">วันที่จะเข้าร่วม</label>
-        <input id="attendDate" name="attendDate" type="date">
-      </div>
+            <div class="form-group checkbox-group">
+                <input type="checkbox" id="consent" name="consent" required>
+                <label for="consent">ยอมรับเงื่อนไขการเข้าร่วมงานและนโยบายความเป็นส่วนตัว</label>
+                <small class="error-msg" style="display:block; margin-top:5px; width: 100%;">ต้องยอมรับเงื่อนไขก่อนลงทะเบียน</small>
+            </div>
 
-      <div class="form-row">
-        <label for="note">หมายเหตุ</label>
-        <textarea id="note" name="note" rows="3" placeholder="-"></textarea>
-      </div>
+            <button type="submit" class="submit-btn">ยืนยันการลงทะเบียน</button>
+        </form>
+    </div>
 
-      <div class="form-row">
-        <label class="agree"><input id="agree" name="agree" type="checkbox" required> ยอมรับเงื่อนไข *</label>
-        <div class="error" id="err-agree"></div>
-      </div>
+    <div class="drawer-backdrop" id="drawerBackdrop"></div>
 
-      <div class="form-row">
-        <button type="submit">ลงทะเบียน</button>
-      </div>
-    </form>
+    <div class="footer">
+        <p>© 2025 Dreamy Cloud Festival | Group 15</p>
+    </div>
 
-    <footer class="foot-note">
-      <p>มีปัญหาแจ้งผู้ดูแลระบบหรือส่งอีเมลมาที่ <a href="mailto:admin@ourfestival.example">Demo@tu.ac.th</a></p>
-      <p><a href="/summary">ดูสรุปผู้ลงทะเบียน</a></p>
-    </footer>
-  </main>
-
-  <script src="/static/validate.js" defer></script>
 </body>
 </html>
