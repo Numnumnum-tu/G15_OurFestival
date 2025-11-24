@@ -328,6 +328,10 @@ body.sidebar-open .drawer-backdrop {
         font-size: 1.8rem;
     }
 
+    .description li {
+        padding: 5px;
+    }
+
     .booth-image-content {
         grid-template-columns: 1fr;
     }
