@@ -14,6 +14,7 @@
 
 body {
     font-family: 'Prompt', sans-serif;
+    margin-top: 20px;
     margin: 0;
     padding: 0;
     background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
@@ -126,11 +127,6 @@ body.sidebar-open .left-side {
     pointer-events: none;
     transition: opacity .3s;
     z-index: 11900;
-}
-
-body.sidebar-open .drawer-backdrop {
-    opacity: 1;
-    pointer-events: auto;
 }
 
 @keyframes fadeIn {

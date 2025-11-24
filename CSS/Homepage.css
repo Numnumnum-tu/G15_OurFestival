@@ -292,7 +292,6 @@ body.sidebar-open .drawer-backdrop {
     pointer-events: auto;
 }
 
-/* --- Footer --- */
 .footer {
     background: linear-gradient(to bottom right, #ffffff 0%, #e0bbf1 100%);
     padding: 15px 0;
