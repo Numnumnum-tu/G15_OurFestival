@@ -1,4 +1,7 @@
 :root {
+    /* เพิ่มตัวแปรจาก Homepage เพื่อให้ Heading ทำงานถูกต้อง */
+    --header-h: 70px;
+
     --primary-color: #6a11cb;
     --secondary-color: #2575fc;
     --glass-bg: rgba(255, 255, 255, 0.75);
@@ -14,14 +17,18 @@
 
 body {
     font-family: 'Prompt', sans-serif;
-    margin-top: 20px;
     margin: 0;
     padding: 0;
     background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
     min-height: 100vh;
     color: var(--text-main);
+    display: flex;
+    flex-direction: column;
+    /* ปรับ margin-top ให้เนื้อหาไม่จมใต้ header */
+    padding-top: var(--header-h);
 }
 
+/* --- Heading (คัดลอกมาจาก Homepage.css) --- */
 .Heading {
     background: linear-gradient(to bottom right, #ffffff 0%, #e0bbf1 100%);
     backdrop-filter: blur(8px);
@@ -55,13 +62,7 @@ body {
     color: #555;
 }
 
-.fb-container {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 0 20px;
-    animation: fadeIn 0.8s ease-out;
-}
-
+/* --- Left Side / Sidebar (คัดลอกมาจาก Homepage.css) --- */
 .left-side {
     position: fixed;
     top: 0;
@@ -121,12 +122,24 @@ body.sidebar-open .left-side {
 .drawer-backdrop {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, .3);
-    backdrop-filter: blur(2px);
+    background: rgba(0, 0, 0, 0.3);
     opacity: 0;
     pointer-events: none;
-    transition: opacity .3s;
-    z-index: 11900;
+    transition: opacity 0.3s;
+    z-index: 900;
+}
+
+body.sidebar-open .drawer-backdrop {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* --- Main Content Layout --- */
+.fb-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+    animation: fadeIn 0.8s ease-out;
 }
 
 @keyframes fadeIn {
@@ -227,7 +240,6 @@ body.sidebar-open .left-side {
 .fb-cards {
     display: grid;
     gap: 25px;
-    /* Responsive Grid Logic (Inferring from common practices since not explicit in CSS) */
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }
 
@@ -282,7 +294,6 @@ body.sidebar-open .left-side {
 /* ดาวคะแนน */
 .fb-stars {
     color: #e0e0e0;
-    /* Inactive star color */
     font-size: 1.2rem;
     background: rgba(255, 255, 255, 0.5);
     padding: 6px 12px;
@@ -338,7 +349,6 @@ body.sidebar-open .left-side {
 
 .fb-card .footer {
     margin-top: auto;
-    /* Push to bottom */
     padding-top: 15px;
     border-top: 1px dashed rgba(0, 0, 0, 0.05);
 }
