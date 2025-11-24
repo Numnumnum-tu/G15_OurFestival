@@ -25,7 +25,6 @@ body {
     flex-direction: column;
 }
 
-/* --- Sidebar & Header (Theme เดียวกับ Feedback) --- */
 .Heading {
     position: fixed; top: 0; left: 0; right: 0; height: var(--header-h);
     display: flex; justify-content: center; align-items: center;
@@ -50,7 +49,6 @@ body.sidebar-open .left-side { transform: translateX(0); }
 .drawer-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,.3); opacity: 0; pointer-events: none; transition: .3s; z-index: 11500; }
 body.sidebar-open .drawer-backdrop { opacity: 1; pointer-events: auto; }
 
-/* --- Registration Form Styles --- */
 .regis-container {
     flex: 1; display: flex; justify-content: center; padding: 30px 15px;
 }
@@ -100,7 +98,6 @@ input[type="text"]:focus, select:focus {
 .input-error { border-color: #ff4757 !important; background-color: #fff1f2; }
 .show-error { display: block; }
 
-/* --- Summary Table Styles --- */
 .summary-card {
     background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
     border-radius: 24px; padding: 30px; width: 100%; max-width: 900px;
