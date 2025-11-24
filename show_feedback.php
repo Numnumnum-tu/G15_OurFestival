@@ -25,8 +25,6 @@ function e($s) { return htmlspecialchars((string)$s, ENT_QUOTES, 'UTF-8'); }
   <link rel="icon" type="image/png" href="img/G15_logo.png">
   
   <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="CSS/Leave Your Feedback Page.css">
 
   <link rel="stylesheet" href="CSS/show_feedback.css">
 

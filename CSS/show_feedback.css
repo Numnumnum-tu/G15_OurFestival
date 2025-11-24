@@ -1,179 +1,411 @@
 :root {
     --primary-color: #6a11cb;
     --secondary-color: #2575fc;
-    --glass-bg: rgba(255, 255, 255, 0.85);
-    --glass-border: rgba(255, 255, 255, 0.4);
-    --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
-  }
-  
-  body {
-    font-family: 'Prompt', sans-serif !important;
-  }
-  
-  .fb-container {
+    --glass-bg: rgba(255, 255, 255, 0.75);
+    --glass-border: rgba(255, 255, 255, 0.6);
+    --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+    --text-main: #333;
+    --text-muted: #666;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Prompt', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+    min-height: 100vh;
+    color: var(--text-main);
+}
+
+.Heading {
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(5px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.heading-logo {
+    height: 40px;
+    margin-left: 10px;
+    /* Fallback styling for broken image */
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.toggle-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #444;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background 0.2s;
+}
+
+.toggle-btn:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+/* --- Container หลัก --- */
+.fb-container {
     max-width: 800px;
     margin: 40px auto;
     padding: 0 20px;
-  }
-  
-  .page-header h1 {
-    color: #fff;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    margin-bottom: 20px;
-    font-weight: 600;
-    text-align: center;
-  }
-  
-  .fb-search-row form {
-    background: var(--glass-bg);
-    backdrop-filter: blur(4px);
-    padding: 10px;
-    border-radius: 50px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    margin: 0 auto 30px auto;
-    max-width: 100% !important;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.left-side {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 280px;
+    transform: translateX(-100%);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    transition: .3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 2px 0 10px rgba(0, 0, 0, .1);
+    z-index: 12000;
+    display: flex;
+    flex-direction: column;
+}
+
+.side-logo {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 20px;
     display: flex;
     align-items: center;
+    justify-content: center;
+    background: #f0f4f8;
+    border-radius: 50%;
+    font-size: 40px;
+}
+
+.side-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.side-list li {
+    margin-bottom: 8px;
+}
+
+.side-list a {
+    text-decoration: none;
+    color: #444;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 15px;
+    border-radius: 12px;
+    transition: .2s;
+    font-weight: 500;
+}
+
+.side-list a:hover {
+    background: #eef2f6;
+    color: var(--primary-color);
+    transform: translateX(5px);
+}
+
+.side-list .icon {
+    width: 24px;
+    text-align: center;
+}
+
+.drawer-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .3);
+    backdrop-filter: blur(2px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s;
+    z-index: 11900;
+}
+
+body.sidebar-open .left-side {
+    transform: translateX(0);
+}
+
+body.sidebar-open .drawer-backdrop {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+body.sidebar-open {
+    overflow: hidden;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.page-header h1 {
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    margin-bottom: 25px;
+    font-weight: 600;
+    text-align: center;
+    font-size: 2.2rem;
+}
+
+/* --- Search Bar --- */
+.fb-search-row {
+    margin-bottom: 35px;
+}
+
+.search-box {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    padding: 6px;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--glass-border);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* Mocking the form structure for CSS match */
+.fb-search-row form {
+    display: flex;
     width: 100%;
-  }
-  
-  .fb-search-row input[type="text"] {
+    justify-content: center;
+}
+
+/* Replicating logic from PHP structure to CSS */
+.fb-search-row form {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    padding: 6px;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--glass-border);
+    max-width: 500px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.fb-search-row input {
     border: none;
     background: transparent;
-    padding: 10px 15px;
+    padding: 12px 20px;
     font-family: 'Prompt', sans-serif;
     font-size: 1rem;
-    width: 100%;
-    outline: none;
     flex-grow: 1;
-  }
-  
-  .fb-search-row button {
+    outline: none;
+    color: #333;
+    min-width: 0;
+    /* Prevent flex overflow */
+}
+
+.fb-search-row button {
     border-radius: 30px;
     padding: 10px 25px;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
     color: white;
     border: none;
     cursor: pointer;
     font-weight: 500;
-    transition: transform 0.2s;
-  }
-  .fb-search-row button:hover {
-    transform: scale(1.05);
-  }
-  
-  .fb-cards {
+    font-family: 'Prompt', sans-serif;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(37, 117, 252, 0.3);
+    margin-right: 2px;
+    white-space: nowrap;
+}
+
+.fb-search-row button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(37, 117, 252, 0.4);
+}
+
+/* --- Feedback Cards Grid --- */
+.fb-cards {
     display: grid;
-    gap: 20px;
-  }
-  
-  .fb-card {
-    background: var(--glass-bg);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    gap: 25px;
+    /* Responsive Grid Logic (Inferring from common practices since not explicit in CSS) */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+/* --- ตัวการ์ด (Glassmorphism) --- */
+.fb-card {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-radius: 20px;
-    border: 1px solid var(--glass-border);
-    box-shadow: var(--shadow);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
     padding: 25px;
     position: relative;
-    transition: transform 0.2s;
-  }
-  
-  .fb-card:hover {
-    transform: translateY(-3px);
-  }
-  
-  .fb-meta {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.fb-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.12);
+    background: rgba(255, 255, 255, 0.85);
+}
+
+/* ส่วนหัวการ์ด (ชื่อ + ดาว) */
+.fb-meta {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     margin-bottom: 15px;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-    padding-bottom: 10px;
-  }
-  
-  .fb-meta .name {
-    font-size: 1.1rem;
-    color: #333;
-  }
-  
-  .fb-meta .gender-badge {
-    font-size: 0.8rem;
-    background: #eee;
-    padding: 4px 10px;
-    border-radius: 12px;
-    color: #666;
-  }
-  
-  .fb-stars {
-    color: #ffc107;
-    font-size: 1.2rem;
-    margin-bottom: 15px;
-  }
-  .fb-stars span.star { color: #ddd; }
-  .fb-stars span.star.active { color: #ffc107; }
-  .rating-number { color:#888; font-size:0.9rem; margin-left:5px; }
-  
-  .fb-row {
-    margin-bottom: 15px;
-  }
-  
-  .label {
-    font-size: 0.85rem;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.fb-meta .name {
+    font-size: 1.15rem;
+    color: #222;
     font-weight: 600;
-    color: #888;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 5px;
-  }
-  
-  .content-box {
-    background: rgba(255,255,255,0.6);
-    padding: 12px;
-    border-radius: 10px;
+}
+
+.fb-meta .gender-badge {
+    font-size: 0.75rem;
+    background: rgba(106, 17, 203, 0.1);
+    padding: 3px 10px;
+    border-radius: 20px;
+    color: var(--primary-color);
+    margin-top: 4px;
+    display: inline-block;
+    font-weight: 500;
+}
+
+/* ดาวคะแนน */
+.fb-stars {
+    color: #e0e0e0;
+    /* Inactive star color */
+    font-size: 1.2rem;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 6px 12px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.fb-stars .star.active {
+    color: #FFD700;
+}
+
+.rating-number {
+    color: #666;
+    font-size: 0.85rem;
+    margin-left: 8px;
+    font-weight: 500;
+}
+
+/* เนื้อหาคอมเมนต์ */
+.fb-row {
+    margin-bottom: 15px;
+}
+
+.label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.content-box {
+    background: rgba(255, 255, 255, 0.5);
+    padding: 12px 15px;
+    border-radius: 12px;
     font-size: 0.95rem;
     color: #444;
     line-height: 1.6;
-  }
-  
-  .like-section .label { color: #28a745; }
-  .improve-section .label { color: #dc3545; }
-  
-  .fb-card .footer {
-    text-align: right;
-    margin-top: 10px;
-  }
-  .ts {
-    font-size: 0.75rem;
-    color: #999;
-    background: none;
-  }
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    min-height: 50px;
+}
 
-  .footer-site {
-    margin-top: 50px; 
-    color: white; 
-    text-align: center; 
+.like-section .label {
+    color: #2e7d32;
+}
+
+.improve-section .label {
+    color: #c62828;
+}
+
+.fb-card .footer {
+    margin-top: auto;
+    /* Push to bottom */
+    padding-top: 15px;
+    border-top: 1px dashed rgba(0, 0, 0, 0.05);
+}
+
+.ts {
+    font-size: 0.8rem;
+    color: #888;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 6px;
+}
+
+.count-msg {
+    text-align: center;
+    color: #fff;
+    margin-top: 20px;
     opacity: 0.8;
-  }
-  
-  .no-data-msg {
-    text-align: center; 
-    color: white; 
-    margin-top: 50px; 
-    background: rgba(0,0,0,0.2); 
-    padding: 20px; 
-    border-radius: 15px;
-    font-size: 1.2rem;
-  }
+}
 
-  .count-msg {
-    text-align: center; 
-    color: rgba(255,255,255,0.8); 
-    margin-top: 20px; 
+.footer-site {
+    text-align: center;
+    margin-top: 50px;
+    padding-bottom: 20px;
+    color: rgba(255, 255, 255, 0.9);
     font-size: 0.9rem;
-  }
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
 
-  @media (max-width: 600px) {
-    .fb-container { padding: 0 15px; }
-    .fb-card { padding: 15px; }
-  }
+@media (max-width: 600px) {
+    .fb-container {
+        padding: 0 15px;
+    }
+
+    .fb-card {
+        padding: 20px;
+    }
+
+    .page-header h1 {
+        font-size: 1.6rem;
+    }
+
+    .fb-cards {
+        grid-template-columns: 1fr;
+    }
+}
