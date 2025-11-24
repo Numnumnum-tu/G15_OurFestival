@@ -43,18 +43,15 @@ body {
 }
 
 .toggle-btn {
-    background: none;
-    border: none;
-    font-size: 1.5rem;
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    background: transparent;
+    border: 0;
     cursor: pointer;
-    color: #444;
-    padding: 5px 10px;
-    border-radius: 5px;
-    transition: background 0.2s;
-}
-
-.toggle-btn:hover {
-    background: rgba(0, 0, 0, 0.05);
+    color: #555;
 }
 
 .fb-container {
@@ -131,17 +128,9 @@ body.sidebar-open .left-side {
     z-index: 11900;
 }
 
-body.sidebar-open .left-side {
-    transform: translateX(0);
-}
-
 body.sidebar-open .drawer-backdrop {
     opacity: 1;
     pointer-events: auto;
-}
-
-body.sidebar-open {
-    overflow: hidden;
 }
 
 @keyframes fadeIn {
