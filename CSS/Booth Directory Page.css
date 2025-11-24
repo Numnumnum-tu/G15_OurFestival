@@ -1,4 +1,3 @@
-/* --- ตั้งค่าพื้นฐาน --- */
 :root {
     --color-q1: rgb(250, 222, 171);
     --color-q2: #ffb6c1;
@@ -17,11 +16,10 @@ body {
     font-family: 'Kanit', sans-serif;
     height: 100vh;
     width: 100vw;
-    overflow: hidden; /* ป้องกัน Scrollbar ในจอใหญ่ */
+    overflow: hidden; 
     background-color: #fff;
 }
 
-/* --- Grid Layout หลัก --- */
 .container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -31,19 +29,17 @@ body {
     position: relative;
 }
 
-/* --- สไตล์ของแต่ละช่อง (Card) --- */
 .booth-card {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    overflow: hidden; /* เพื่อให้ภาพซูมไม่ล้นกรอบ */
+    overflow: hidden;
     color: var(--text-color);
     transition: all 0.3s ease;
 }
 
-/* ภาพพื้นหลังของแต่ละช่อง */
 .booth-bg {
     position: absolute;
     inset: 0;
@@ -55,7 +51,6 @@ body {
     z-index: 1;
 }
 
-/* เลเยอร์สีทับภาพ (Overlay) เพื่อให้อ่านตัวหนังสือออก */
 .booth-overlay {
     position: absolute;
     inset: 0;
@@ -64,7 +59,6 @@ body {
     transition: opacity 0.3s ease;
 }
 
-/* ป้ายชื่อร้าน */
 .booth-label {
     position: relative;
     z-index: 3;
@@ -81,26 +75,23 @@ body {
     min-width: 200px;
 }
 
-/* --- การกำหนดสีและภาพแต่ละโซน --- */
 .c1 .booth-overlay { background-color: var(--color-q1); }
 .c2 .booth-overlay { background-color: var(--color-q2); }
 .c3 .booth-overlay { background-color: var(--color-q3); }
 .c4 .booth-overlay { background-color: var(--color-q4); }
 
-/* ใส่สี Border ให้ปุ่มเข้ากับธีม */
 .c1 .booth-label { border: 3px solid var(--color-q1); color: #8a6d3b; }
 .c2 .booth-label { border: 3px solid var(--color-q2); color: #a94442; }
 .c3 .booth-label { border: 3px solid var(--color-q3); color: #31708f; }
 .c4 .booth-label { border: 3px solid var(--color-q4); color: #3c763d; }
 
-/* --- Hover Effects (ลูกเล่นเมื่อเอาเมาส์ชี้) --- */
 .booth-card:hover .booth-bg {
-    transform: scale(1.1); /* ซูมภาพ */
+    transform: scale(1.1);
     opacity: 1;
 }
 
 .booth-card:hover .booth-overlay {
-    opacity: 0.4; /* ทำให้สีจางลงเพื่อให้เห็นภาพชัดขึ้น */
+    opacity: 0.4;
 }
 
 .booth-card:hover .booth-label {
@@ -108,7 +99,6 @@ body {
     box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
 
-/* --- ปุ่ม Home ตรงกลาง (Center Logo) --- */
 .home-center {
     position: absolute;
     top: 50%;
@@ -140,12 +130,20 @@ body {
 @media (max-width: 768px) {
     body {
         height: auto;
+        overflow-y: auto; 
+        overflow-x: hidden;
     }
     
     .container {
-        grid-template-columns: 1fr; /* เรียงเป็นแถวเดียว */
-        grid-template-rows: repeat(4, 250px); /* ความสูงแต่ละช่อง */
+        grid-template-columns: 1fr;
+        grid-auto-rows: minmax(250px, auto);
+        grid-template-rows: auto;
         height: auto;
+        padding-bottom: 80px;
+    }
+
+    .booth-card {
+        height: 250px;
     }
 
     .booth-label {
@@ -158,13 +156,14 @@ body {
     .home-center {
         width: 90px;
         height: 90px;
-        position: fixed; /* ลอยติดหน้าจอ */
+        position: fixed;
         bottom: 20px;
         right: 20px;
         top: auto;
         left: auto;
         transform: none;
         box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        z-index: 100;
     }
     
     .home-center:hover {
