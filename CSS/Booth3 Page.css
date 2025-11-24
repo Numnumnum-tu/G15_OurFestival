@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Mali:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=DynaPuff:wght@400..700&family=Jua&family=Yesteryear&display=swap');
 
 
 html, body {
@@ -11,16 +12,17 @@ html, body {
 /* bg content */
 
 body.bgBooth3{
-    background-color: #e9c5eb;
+    background: linear-gradient(to bottom, #e69adf, #b5dbf7);
+    background-attachment: fixed;
+    background-size: cover;
+    min-height: 100vh;
 }
 
 
 /* logo */
 
 .bglogo{
-   background-color: #eca8ee;
-   padding: 5px 5px ;             
-   display: flex;
+background: linear-gradient(to bottom, #b5dbf7,#e98adf );   display: flex;
    align-items: center;           
    flex-wrap: wrap;
    position: sticky;
@@ -80,18 +82,26 @@ body.bgBooth3{
     margin-top: 30px;
     max-width: 50%; 
     height: auto;
-    border-radius: 5px; 
-    background-color: #82cfe9;
-    border: 1px solid hsla(0, 0%, 100%, 0.233);
+    border-radius: 20px; 
+    background-color: rgba(255, 255, 255, 0.6); 
+    backdrop-filter: blur(10px);
+    border: 2px solid #fff;
     border-radius: 8px; 
     padding:10px;
-    margin: 30px 30px 30px 30px;
+    margin: 20px;
     max-width: 200px; 
     min-width: 200px;
     margin-left: auto;
     margin-right: auto;
-    box-shadow: 0 3px 5px rgba(0,0,0,0.1); 
-    
+    padding: 20px;   
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05); 
+    transition: all 0.4s ease;
+}
+
+.blush:hover {
+    transform: translateY(-10px); 
+    background-color: #ffffff; 
+    box-shadow: 0 15px 35px rgba(255, 182, 193, 0.4);
 }
 
 .blush img{
@@ -146,6 +156,8 @@ body.bgBooth3{
               box-shadow 0.3s ease-in-out; 
   z-index: 2000; 
   padding-top: 80px; 
+
+
   
 }
 
@@ -163,14 +175,14 @@ body.bgBooth3{
 }
 
 .navigation-menu a {
-   text-decoration: none;
-   color: #000000;
-   font-size: 24px;
-   font-family: 'Mali', cursive !important; 
-   margin: 10px 0px 10px 10px;
-   display: block;
+    font-family: 'Mali', cursive !important; 
+    font-size: 20px;
+    font-weight: 400; 
+    text-decoration: none;
+    color: #444242;
+    margin: 10px 0px 10px 10px;
+    display: block;
 }
-
 
 .navigation-menu.is-active {
   left: 0;
@@ -254,30 +266,32 @@ body.bgBooth3{
 
 
 
- 
-
-h2 {
-    color: #000000;
+ h2 {
+   font-family: "DM Serif Text", serif;
+   font-weight: 400;
+   font-style: normal;
+   text-align: center; 
+   margin-top: 40px;
+   margin-bottom: 20px;
+   letter-spacing: 1px;
 }
 
-/* 1. Wrapper ใหม่สำหรับจัด Layout (Flexbox) */
 .main-slider-wrapper {
     display: flex;
-    align-items: flex-start; /* ให้ชิดบน */
-    width: 900px; /* ความกว้างรวม */
+    align-items: flex-start; 
+    width: 900px; 
     max-width: 100%;
     margin: 20px auto;
 }
 
-/* 2. ส่วนประกอบของสไลเดอร์ (สไลด์ + ปุ่ม) */
 .slider-component {
-    flex: 2; /* ให้สไลเดอร์กินพื้นที่ 2 ส่วน */
+    flex: 2; 
     position: relative;
 }
 
-/* 3. กล่องข้อความด้านข้าง */
+/* กล่องข้อความด้านข้าง */
 .slider-text-content {
-    flex: 1; /* ให้ข้อความกินพื้นที่ 1 ส่วน */
+    flex: 1; 
     margin-left: 20px;
     padding: 20px;
     background: #ffffff;
@@ -289,9 +303,8 @@ h2 {
     min-height: 150px;
 }
 
-/* --- โค้ดสไลเดอร์เดิม (ปรับเล็กน้อย) --- */
 .slider-container {
-    width: 100%; /* เปลี่ยนเป็น 100% เพื่อให้ยืดตาม .slider-component */
+    width: 100%; 
     margin: 0;
     position: relative;
     border-radius: 8px;
@@ -336,8 +349,6 @@ h2 {
 .prev-btn { left: 10px; }
 .next-btn { right: 10px; }
 
-
-/* 4. สไตล์สำหรับปุ่มจุด (Dots) [เพิ่มใหม่] */
 .slider-nav {
     text-align: center;
     padding-top: 15px;
@@ -357,7 +368,6 @@ h2 {
     
 }
 
-/* สไตล์ของ .dot เมื่อถูก 'active' */
 .dot.active {
     background-color: #333;
 }
@@ -390,13 +400,12 @@ h2 {
     margin: 20px auto;
 }
 
-/* 2. ส่วนประกอบของสไลเดอร์ (สไลด์ + ปุ่ม) */
 .slider-component {
     flex: 2; 
     position: relative;
 }
 
-/* 3. กล่องข้อความด้านข้าง */
+/*  กล่องข้อความด้านข้าง */
 .slider-text-content {
     flex: 1; 
     margin-left: 20px;
@@ -410,7 +419,24 @@ h2 {
     min-height: 150px;
 }
 
-/* --- โค้ดสไลเดอร์เดิม (ปรับเล็กน้อย) --- */
+.slider-text-content a {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 25px;
+    background: linear-gradient(45deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+    color: white; 
+    text-decoration: none; 
+    border-radius: 30px; 
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(255, 154, 158, 0.4); 
+    transition: all 0.3s ease;
+    font-family: 'Mali', cursive; 
+}
+
+.slider-text-content a:hover {
+    transform: translateY(-3px); 
+    box-shadow: 0 6px 20px rgba(255, 154, 158, 0.6);
+}
 .slider-container {
     width: 100%; 
     margin: 0;
@@ -419,7 +445,12 @@ h2 {
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     overflow: hidden; 
 }
-
+.slide img {
+    width: 100%;
+    display: block;
+    height: 350px; 
+    object-fit: cover;
+}
 .slider-track {
     display: flex;
     transition: transform 0.5s ease-in-out; 
@@ -494,8 +525,6 @@ h2 {
         height: 300px; 
     }
 }
-
-
 
 
 /* ฟองสบู่ */
@@ -644,7 +673,7 @@ h2 {
     }
     33% {
         background: radial-gradient(circle at 30% 30%, rgba(255, 192, 203, 0.644), rgba(255, 192, 203, 0.582));
-        box-shadow: 0 0 15px rgba(255, 192, 203, 0.685);
+        box-shadow: 0 0 15px rgb(247, 163, 177);
     }
     66% {
         background: radial-gradient(circle at 30% 30%, rgba(143, 207, 228, 0.911), rgba(55, 191, 236, 0.795));
@@ -655,6 +684,7 @@ h2 {
         box-shadow: 0 0 15px rgba(255, 255, 255, 0.521);
     }
 }
+
 
 header, main, footer {
     position: relative; 
